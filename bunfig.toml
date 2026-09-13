@@ -1,0 +1,6 @@
+# A release must be at least seven days old (604800 seconds) before it can be resolved into
+# this project, so a freshly published malicious version cannot enter the lockfile. Only the
+# project-local bunfig.toml is consulted, and the setting applies while dependencies are
+# resolved, so the lockfile has to be built with it in place.
+[install]
+minimumReleaseAge = 604800

@@ -1,0 +1,295 @@
+/* Base hue comes from #1e88e5; accent hue comes from the mark's #00b4e7. Chroma is limited to sRGB, with a lower
+   base cap to keep surfaces unsaturated. */
+:root {
+  --_base-20: oklch(0.02 0.012 250.87);
+  --_base-30: oklch(0.03 0.012 250.87);
+  --_base-40: oklch(0.04 0.012 250.87);
+  --_base-50: oklch(0.05 0.012 250.87);
+  --_base-100: oklch(0.1 0.012 250.87);
+  --_base-130: oklch(0.13 0.016 250.87);
+  --_base-170: oklch(0.17 0.021 250.87);
+  --_base-200: oklch(0.2 0.024 250.87);
+  --_base-210: oklch(0.21 0.025 250.87);
+  --_base-230: oklch(0.23 0.027 250.87);
+  --_base-280: oklch(0.28 0.033 250.87);
+  --_base-300: oklch(0.3 0.035 250.87);
+  --_base-400: oklch(0.4 0.044 250.87);
+  --_base-500: oklch(0.5 0.045 250.87);
+  --_base-600: oklch(0.6 0.045 250.87);
+  --_base-650: oklch(0.65 0.045 250.87);
+  --_base-700: oklch(0.7 0.045 250.87);
+  --_base-800: oklch(0.8 0.045 250.87);
+  --_base-870: oklch(0.87 0.045 250.87);
+  --_base-900: oklch(0.9 0.039 250.87);
+  --_base-950: oklch(0.95 0.024 250.87);
+  --_base-960: oklch(0.96 0.019 250.87);
+  --_base-970: oklch(0.97 0.014 250.87);
+  --_base-980: oklch(0.98 0.009 250.87);
+  --_base-990: oklch(0.99 0.004 250.87);
+
+  --_accent-20: oklch(0.02 0.012 227.17);
+  --_accent-30: oklch(0.03 0.012 227.17);
+  --_accent-40: oklch(0.04 0.014 227.17);
+  --_accent-50: oklch(0.05 0.018 227.17);
+  --_accent-100: oklch(0.1 0.035 227.17);
+  --_accent-130: oklch(0.13 0.037 227.17);
+  --_accent-170: oklch(0.17 0.04 227.17);
+  --_accent-200: oklch(0.2 0.043 227.17);
+  --_accent-210: oklch(0.21 0.044 227.17);
+  --_accent-230: oklch(0.23 0.048 227.17);
+  --_accent-280: oklch(0.28 0.055 227.17);
+  --_accent-300: oklch(0.3 0.059 227.17);
+  --_accent-400: oklch(0.4 0.077 227.17);
+  --_accent-500: oklch(0.5 0.096 227.17);
+  --_accent-600: oklch(0.6 0.116 227.17);
+  --_accent-650: oklch(0.65 0.125 227.17);
+  --_accent-700: oklch(0.7 0.134 227.17);
+  --_accent-800: oklch(0.8 0.131 227.17);
+  --_accent-900: oklch(0.9 0.062 227.17);
+  --_accent-950: oklch(0.95 0.03 227.17);
+  --_accent-960: oklch(0.96 0.023 227.17);
+  --_accent-970: oklch(0.97 0.018 227.17);
+  --_accent-980: oklch(0.98 0.011 227.17);
+  --_accent-990: oklch(0.99 0.006 227.17);
+}
+
+:root {
+  --color-bg: var(--_base-130);
+  --color-surface: var(--_base-170);
+  --color-surface-raised: var(--_base-210);
+
+  --color-on-bg: var(--_base-950);
+  --color-on-bg-secondary: var(--_base-650);
+  --color-on-surface: var(--_base-950);
+  --color-on-surface-secondary: var(--_base-600);
+  --color-on-surface-raised: var(--_base-950);
+  --color-on-surface-raised-secondary: var(--_base-600);
+  --color-on-accent: var(--_accent-170);
+
+  --color-accent: var(--_accent-700);
+  --color-accent-hover: var(--_accent-800);
+
+  --color-border: var(--_base-280);
+  --color-border-subtle: var(--_base-230);
+  /* Focus rings require 3:1 contrast against their backing (WCAG 1.4.11); accent step 400 reaches only 2.23:1
+     here. */
+  --color-outline: var(--_accent-900);
+
+  --color-hover-on-bg: var(--_base-170);
+  --color-hover-on-surface: var(--_base-210);
+  --color-hover-on-surface-raised: var(--_base-280);
+
+  --color-next: var(--color-surface);
+
+  --color-scrim: color-mix(in oklab, var(--color-bg) 72%, transparent);
+
+  --color-success: oklch(0.72 0.17 155);
+  --color-error: oklch(0.65 0.2 25);
+  --color-warning: oklch(0.78 0.15 75);
+  --color-info: oklch(0.72 0.12 240);
+
+  /* Glow tokens are gradient endpoints that fade to transparent, not surface fills. Check their contrast in the
+     light theme when adding a consumer. */
+  --glow-1: color-mix(in oklab, var(--_accent-600) 15%, transparent);
+  --glow-2: color-mix(in oklab, var(--_accent-600) 27%, transparent);
+  --glow-3: color-mix(in oklab, var(--_accent-700) 40%, transparent);
+  --glow-4: color-mix(in oklab, var(--_accent-700) 52%, transparent);
+  /* The corner overlay keeps white brand text legible where the wedge gradient becomes too light. */
+  --wedge-ink: oklch(0.97 0.008 250.87);
+  --wedge-deep: oklch(0.4 0.163 261.5);
+  --wedge-core: oklch(0.549 0.163 253.8);
+  --wedge-bright: oklch(0.686 0.141 240);
+  --wedge-corner: color-mix(in oklab, oklch(0.2 0.09 262) 80%, transparent);
+  --wedge-outline: oklch(0.76 0.13 240);
+
+  /* Element hues follow the gases or vapours; warm hues are restricted to small accents outside depth fields.
+     Cell alphas are contrast-tuned and must not be replaced with call-site opacity steps. */
+  --element-fluorine: oklch(0.879 0.155 110.4);
+  --element-chlorine: oklch(0.829 0.191 129.6);
+  --element-bromine: oklch(0.685 0.14 43.6);
+  --element-iodine: oklch(0.69 0.168 302.5);
+
+  /* Build shelves need these defaults outside device depths: an undefined token invalidates their --element
+     value. Device depths override both steps in depth.css. */
+  --element-candidate: var(--color-accent);
+  --element-test: var(--color-accent);
+
+  /* Feature colours are sampled from the midpoint of each mark's gradient and stay fixed across themes. */
+  --feature-performance: #ff3300;
+  --feature-battery: #00ad72;
+  --feature-stability: #8c79ca;
+
+  /* Telegram button colours follow the official logo gradient and white symbol; they stay fixed across themes. */
+  --telegram-sky: #2aabee;
+  --telegram-sea: #229ed9;
+  --telegram-ink: #ffffff;
+  /* These strengths must be mixed with --element at the consumer, since it is set on the depth body. A mix
+     declared at :root would resolve --element there, not where it is inherited. */
+  --room-wash-near: 24%;
+  --room-wash-far: 12%;
+  /* At 55%, a motif dot behind the address on a short phone card reduces text contrast to 3.17:1. */
+  --motif-source: 36%;
+  --cell-fill: color-mix(in oklab, var(--color-surface) 80%, transparent);
+  --cell-ink-quiet: color-mix(in oklab, var(--color-on-surface) 85%, transparent);
+  --cell-ghost-fill: color-mix(in oklab, var(--color-bg) 40%, transparent);
+  --glass-dim: color-mix(in oklab, var(--_base-800) 10%, transparent);
+  --glass-lit: color-mix(in oklab, var(--_base-950) 22%, transparent);
+  --glass-cap: color-mix(in oklab, var(--_base-700) 60%, transparent);
+  --glass-gloss: color-mix(in oklab, var(--_base-990) 38%, transparent);
+
+  /* The surface scale's chroma cap makes glows grey, so these use the uncapped blue. */
+  --glow-cool: color-mix(in oklab, oklch(0.58 0.168 250.87) 26%, transparent);
+  --glow-cool-far: color-mix(in oklab, oklch(0.48 0.138 250.87) 17%, transparent);
+
+  /* Thin strokes need stronger alphas than broad glows; do not add a second opacity at the call site. */
+  --glow-line-bright: color-mix(in oklab, var(--_accent-950) 85%, transparent);
+  --glow-line: color-mix(in oklab, var(--_accent-900) 70%, transparent);
+  --glow-line-dim: color-mix(in oklab, var(--_accent-900) 50%, transparent);
+  /* The blue arc shares the mark's luminous blue; the broad cool glow is too faint for a three-pixel stroke. */
+  --glow-line-cool: color-mix(in oklab, var(--mark-ink-far) 72%, transparent);
+  --glow-core: color-mix(in oklab, var(--_accent-990) 90%, transparent);
+  /* The near-to-far fade keeps the orb's circular outlines from reading as a solid disc. */
+  --glow-hair: color-mix(in oklab, var(--_accent-990) 17%, transparent);
+  --glow-hair-far: color-mix(in oklab, var(--_accent-990) 2%, transparent);
+
+  /* Mark colours are sampled from public/logo.png, including hues outside the surface scale. They stay fixed
+     because the mark's backing remains deep blue in both themes. */
+  --mark-ink: var(--_accent-700);
+  --mark-ink-far: oklch(0.62 0.15 250.87);
+  --mark-pale: var(--_base-900);
+  --mark-pale-far: oklch(0.85 0.063 227.17);
+  /* The backing keeps the mark's pale and cyan lines distinct; full opacity makes a hole in the field, while
+     substantially less than 86% washes out the lines. */
+  --mark-backing: color-mix(in oklab, var(--_base-130) 86%, transparent);
+  --mark-backing-far: color-mix(in oklab, var(--_base-130) 30%, transparent);
+  /* Cyan separates the spinner from the blue field without resembling a dark cutout or another pale mark line. */
+  --spinner-line: var(--_accent-700);
+
+  /* Large spore blobs need lower alphas than one-pixel flecks to avoid obscuring the backdrop. */
+  --fleck-neutral-dim: color-mix(in oklab, var(--_accent-980) 51%, transparent);
+  --fleck-neutral-bright: color-mix(in oklab, var(--_accent-980) 66%, transparent);
+  --fleck-accent-pale-dim: color-mix(in oklab, var(--_accent-900) 44%, transparent);
+  --fleck-accent-pale-bright: color-mix(in oklab, var(--_accent-900) 69%, transparent);
+  --fleck-accent-dim: color-mix(in oklab, var(--_accent-700) 56%, transparent);
+  --fleck-accent-bright: color-mix(in oklab, var(--_accent-700) 67%, transparent);
+  --fleck-cool-dim: color-mix(in oklab, var(--_base-900) 45%, transparent);
+  --fleck-cool-bright: color-mix(in oklab, var(--_base-900) 70%, transparent);
+  --fleck-spore-accent: color-mix(in oklab, var(--_accent-700) 21%, transparent);
+  --fleck-spore-cool: color-mix(in oklab, var(--_base-700) 18%, transparent);
+  --fleck-spore-pale: color-mix(in oklab, var(--_accent-900) 14%, transparent);
+
+  /* Sanctioned exception: scheme-dependent display values live here so template classes can consume them. Only
+     one atom is visible per scheme to avoid competing with the orb or darkening the pale background. */
+  --drawing-on-field: none;
+  --drawing-in-night: block;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: var(--_base-980);
+    --color-surface: var(--_base-990);
+    --color-surface-raised: var(--_base-990);
+
+    --color-on-bg: var(--_base-170);
+    --color-on-bg-secondary: var(--_base-500);
+    --color-on-surface: var(--_base-170);
+    --color-on-surface-secondary: var(--_base-500);
+    --color-on-surface-raised: var(--_base-170);
+    --color-on-surface-raised-secondary: var(--_base-500);
+    --color-on-accent: var(--_accent-980);
+
+    --color-accent: var(--_accent-500);
+    --color-accent-hover: var(--_accent-400);
+
+    --color-border: var(--_base-900);
+    --color-border-subtle: var(--_base-950);
+    /* Accent step 500 gives 3.42:1 against the brightest translucent glow and 5.52:1 against the page; step 600
+       gives only 2.34:1 against that glow, below the 3:1 focus-indicator minimum. */
+    --color-outline: var(--_accent-500);
+
+    --color-hover-on-bg: var(--_base-960);
+    --color-hover-on-surface: var(--_base-970);
+    --color-hover-on-surface-raised: var(--_base-950);
+
+    --color-next: var(--color-surface);
+
+    /* A near-white scrim cannot dim a near-white page, so the light theme uses a darker base step. */
+    --color-scrim: color-mix(in oklab, var(--_base-400) 55%, transparent);
+
+    --color-success: oklch(0.65 0.17 155);
+    --color-error: oklch(0.58 0.2 25);
+    --color-warning: oklch(0.72 0.15 75);
+    --color-info: oklch(0.65 0.12 240);
+
+    /* Light-theme glows must be darker than the page to remain visible. */
+    --glow-1: color-mix(in oklab, var(--_accent-500) 10%, transparent);
+    --glow-2: color-mix(in oklab, var(--_accent-500) 16%, transparent);
+    --glow-3: color-mix(in oklab, var(--_accent-600) 22%, transparent);
+    --glow-4: color-mix(in oklab, var(--_accent-600) 28%, transparent);
+    /* The wedge stays blue and retains its corner overlay to support white brand text in both themes. */
+    --wedge-deep: oklch(0.44 0.155 261.5);
+    --wedge-core: oklch(0.52 0.16 253.8);
+    --wedge-bright: oklch(0.6 0.145 243);
+    --wedge-outline: oklch(0.68 0.14 245);
+    --wedge-corner: color-mix(in oklab, oklch(0.24 0.1 262) 60%, transparent);
+
+    /* Element hues identify the gases; only lightness and chroma change to keep glyphs legible on pale cells. */
+    --element-fluorine: oklch(0.42 0.12 110.4);
+    --element-chlorine: oklch(0.4 0.13 129.6);
+    --element-bromine: oklch(0.42 0.14 43.6);
+    --element-iodine: oklch(0.41 0.18 302.5);
+    /* At 13%, the light-theme room wash is indistinguishable from a white card. */
+    --room-wash-near: 22%;
+    --room-wash-far: 12%;
+    --motif-source: 45%;
+    --glass-dim: color-mix(in oklab, var(--_base-400) 12%, transparent);
+    --glass-lit: color-mix(in oklab, var(--_base-300) 20%, transparent);
+    --glass-cap: color-mix(in oklab, var(--_base-500) 45%, transparent);
+    --glass-gloss: color-mix(in oklab, var(--_base-990) 55%, transparent);
+    --glow-cool: color-mix(in oklab, oklch(0.48 0.138 250.87) 12%, transparent);
+    --glow-cool-far: color-mix(in oklab, oklch(0.4 0.11 250.87) 8%, transparent);
+    /* Orb lines remain pale because their backing is deep blue in both themes; lower alpha softens them in
+       daylight. */
+    --glow-line-bright: color-mix(in oklab, var(--_accent-950) 70%, transparent);
+    --glow-line: color-mix(in oklab, var(--_accent-900) 56%, transparent);
+    --glow-line-dim: color-mix(in oklab, var(--_accent-900) 40%, transparent);
+    --glow-line-cool: color-mix(in oklab, oklch(0.55 0.14 250.87) 58%, transparent);
+    --glow-core: color-mix(in oklab, var(--_accent-990) 82%, transparent);
+    --glow-hair: color-mix(in oklab, var(--_accent-990) 14%, transparent);
+
+    /* Flecks must be darker than the near-white page to remain visible; dark-on-light needs less alpha at one
+       pixel. */
+    --fleck-neutral-dim: color-mix(in oklab, var(--_base-400) 32%, transparent);
+    --fleck-neutral-bright: color-mix(in oklab, var(--_base-400) 42%, transparent);
+    --fleck-accent-pale-dim: color-mix(in oklab, var(--_accent-500) 30%, transparent);
+    --fleck-accent-pale-bright: color-mix(in oklab, var(--_accent-500) 44%, transparent);
+    --fleck-accent-dim: color-mix(in oklab, var(--_accent-400) 36%, transparent);
+    --fleck-accent-bright: color-mix(in oklab, var(--_accent-400) 43%, transparent);
+    --fleck-cool-dim: color-mix(in oklab, var(--_base-500) 31%, transparent);
+    --fleck-cool-bright: color-mix(in oklab, var(--_base-500) 45%, transparent);
+    --fleck-spore-accent: color-mix(in oklab, var(--_accent-400) 17%, transparent);
+    --fleck-spore-cool: color-mix(in oklab, var(--_base-500) 15%, transparent);
+    --fleck-spore-pale: color-mix(in oklab, var(--_accent-500) 13%, transparent);
+
+    --drawing-on-field: block;
+    --drawing-in-night: none;
+  }
+
+  /* The arrival's exposed desktop background needs stronger daytime flecks than content-covered depths. */
+  @media (width >= 761px) {
+    body:not(.depth) {
+      --fleck-neutral-dim: color-mix(in oklab, var(--_base-400) 58%, transparent);
+      --fleck-neutral-bright: color-mix(in oklab, var(--_base-400) 78%, transparent);
+      --fleck-accent-pale-dim: color-mix(in oklab, var(--_accent-500) 55%, transparent);
+      --fleck-accent-pale-bright: color-mix(in oklab, var(--_accent-500) 80%, transparent);
+      --fleck-accent-dim: color-mix(in oklab, var(--_accent-400) 65%, transparent);
+      --fleck-accent-bright: color-mix(in oklab, var(--_accent-400) 79%, transparent);
+      --fleck-cool-dim: color-mix(in oklab, var(--_base-500) 56%, transparent);
+      --fleck-cool-bright: color-mix(in oklab, var(--_base-500) 82%, transparent);
+      /* Large spore blobs need a smaller alpha increase than flecks to avoid looking like stains. */
+      --fleck-spore-accent: color-mix(in oklab, var(--_accent-400) 23%, transparent);
+      --fleck-spore-cool: color-mix(in oklab, var(--_base-500) 20%, transparent);
+      --fleck-spore-pale: color-mix(in oklab, var(--_accent-500) 18%, transparent);
+    }
+  }
+}

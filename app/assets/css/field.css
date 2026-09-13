@@ -1,0 +1,100 @@
+/* Sanctioned exception: value-not-declaration custom properties. The field's shape is a
+   polygon point list and its reach a radial gradient's size and centre, consumed by the
+   clip-path and background declarations in utilities.css; they are properties because
+   they change with the viewport, and a media query cannot live in a template class.
+
+   They sit on `body`, not `:root`: a custom property composed from other custom properties
+   substitutes them where it is declared, so `--wedge-shape` freezes its inputs where it is
+   written and depth.css can only change them through a class body carries. Its
+   `body.<class>` overrides are one specificity step above this file. */
+body {
+  /* Bare numbers, not percentages: the shape reads them as percentages of the box and the
+     arrival reads the same two as viewport lengths, and a percentage cannot become a
+     length. */
+  --wedge-edge-across: 74;
+  --wedge-edge-down: 116;
+  --wedge-edge-x: calc(var(--wedge-edge-across) * 1%);
+  --wedge-edge-y: calc(var(--wedge-edge-down) * 1%);
+  --wedge-shape: 0 0, var(--wedge-edge-x) 0, 0 var(--wedge-edge-y);
+  /* One device pixel, set by the resolution queries below. The slant factors (1.3 on the
+     desk diagonal, 1.2 on the band diagonals) thicken the offset so the line stays one
+     hairline wide on a slanted edge. */
+  --hairline: 1px;
+  --wedge-line-shape: 0 0, calc(var(--wedge-edge-x) + var(--hairline)) 0,
+    0 calc(var(--wedge-edge-y) + var(--hairline) * 1.3);
+  /* Measured: the deepening has to cover wherever the brand block reaches. */
+  --wedge-corner-reach: 78% 62% at 4% 2%;
+  /* The length a page reserves under the field: zero for a corner wedge, the band's depth
+     where the field spans the whole width. */
+  --field-clearance: 0px;
+}
+
+@media (min-resolution: 2dppx) {
+  body {
+    --hairline: 0.5px;
+  }
+}
+
+@media (min-resolution: 3dppx) {
+  body {
+    --hairline: 0.334px;
+  }
+}
+
+/* Unrelated to the --breakpoint-desk token. The two field variants in variants.css spell
+   this number too; `breakpoint-turns.test.ts` holds them to it. */
+@media (width <= 1120px) {
+  body {
+    --wedge-edge-across: 62;
+  }
+}
+
+/* The foot's end stops at 96% so the field's edge never crosses the floor's words.
+   `:not(.depth)` because a stated four-point shape ignores a depth page's overrides. */
+@media (width > 1120px) and (aspect-ratio >= 1) {
+  body:not(.depth) {
+    /* Bare shares, for the same second reader as the edge's. */
+    --wedge-foot-across: 40;
+    --wedge-foot-down: 80;
+    --wedge-foot-x: calc(var(--wedge-foot-across) * 1%);
+    --wedge-foot-y: calc(var(--wedge-foot-down) * 1%);
+    --wedge-foot-end: 96%;
+    --wedge-shape: 0 0, var(--wedge-edge-x) 0, var(--wedge-foot-x) var(--wedge-foot-y),
+      0 var(--wedge-foot-end);
+    --wedge-line-shape: 0 0, calc(var(--wedge-edge-x) + var(--hairline)) 0,
+      calc(var(--wedge-foot-x) + var(--hairline)) calc(var(--wedge-foot-y) + var(--hairline)),
+      0 calc(var(--wedge-foot-end) + var(--hairline) * 1.2);
+  }
+}
+
+/* Measured: the band holds the drawing over the name, and its left edge is the line the
+   table's corner clears, so both depths are shares of the height that fit the two.
+   `:not(.depth)` because a stated four-point shape ignores a depth page's overrides. */
+@media (width >= 761px) and (aspect-ratio < 1) {
+  body:not(.depth) {
+    --wedge-band-right: 34.5%;
+    --wedge-band-left: 43%;
+    --wedge-shape: 0 0, 100% 0, 100% var(--wedge-band-right), 0 var(--wedge-band-left);
+    --wedge-line-shape: 0 0, 100% 0,
+      100% calc(var(--wedge-band-right) + var(--hairline) * 1.2),
+      0 calc(var(--wedge-band-left) + var(--hairline) * 1.2);
+    /* Dies inside the band's shallow end so it never prints as an edge of its own. */
+    --wedge-corner-reach: 100% 24% at 2% 1%;
+  }
+}
+
+/* Measured: the band is deep enough that the whole brand block, tagline included, stands
+   inside the field at 390 wide. 760px is the --breakpoint-desk turn (761px), written here
+   because a media query cannot read a token; `breakpoint-turns.test.ts` fails if it
+   drifts. */
+@media (width <= 760px) {
+  body {
+    --wedge-band-right: 240px;
+    --wedge-band-left: max(46%, 340px);
+    --wedge-shape: 0 0, 100% 0, 100% var(--wedge-band-right), 0 var(--wedge-band-left);
+    --wedge-line-shape: 0 0, 100% 0,
+      100% calc(var(--wedge-band-right) + var(--hairline) * 1.2),
+      0 calc(var(--wedge-band-left) + var(--hairline) * 1.2);
+    --wedge-corner-reach: 230% 78% at 0% 0%;
+  }
+}

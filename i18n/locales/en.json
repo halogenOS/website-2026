@@ -1,0 +1,140 @@
+{
+  "brand": {
+    "name": "halogenOS"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "devices": "Devices",
+    "features": "Features",
+    "community": "Community",
+    "source": "Sources",
+    "openMenu": "Open the menu",
+    "closeMenu": "Close the menu",
+    "menuLabel": "Site menu"
+  },
+  "trail": {
+    "label": "Where you are",
+    "home": "Home"
+  },
+  "element": {
+    "fluorine": "fluorine",
+    "chlorine": "chlorine",
+    "bromine": "bromine",
+    "iodine": "iodine"
+  },
+  "devices": {
+    "title": "Devices with current builds",
+    "lastBuild": "Newest build",
+    "buildCount": "Builds",
+    "tailLink": "All published builds"
+  },
+  "device": {
+    "latestStable": "Newest stable build",
+    "latestCandidate": "Newest release candidate",
+    "latestTest": "Newest test build",
+    "latestBuilds": "Latest builds",
+    "allBuilds": "All builds",
+    "artifactPackage": "Flashable OS zip",
+    "artifactBoot": "Boot image",
+    "artifactVendorBoot": "Vendor boot image",
+    "artifactRecovery": "Recovery image",
+    "everyBuild": "Full build history",
+    "kind": {
+      "stable": "Stable release",
+      "candidate": "Release candidate",
+      "test": "Test build"
+    },
+    "notes": "Build notes",
+    "download": "Download",
+    "timeline": "Build timeline",
+    "capOldest": "Oldest",
+    "capNewest": "Newest",
+    "noFiles": "This release carries no files, so it offers nothing to download.",
+    "unavailable": "The site cannot serve this device's live release data right now, and the full releases listing on GitHub is where to look.",
+    "unavailableLink": "All published builds on GitHub",
+    "noKindBuild": "This device has no build of this kind yet, so the full build history shows what it does have.",
+    "subpageTitle": "{section} for {device}"
+  },
+  "error": {
+    "notFoundBody": "The address you are visiting matches no page on this halogenOS site.",
+    "body": "halogenOS cannot serve the page you want, and the fault is not yours.",
+    "home": "Back to halogenOS"
+  },
+  "features": {
+    "title": "Performance, battery life and stability",
+    "performance": "Performance",
+    "batteryLife": "Battery life",
+    "stability": "Stability",
+    "performanceBody": "You never get to call an operating system finished. Its speed and response get deliberate work here, and the work never stops.",
+    "batteryLifeBody": "Speed and battery life move in the same direction: every update leaves you with more hours, not fewer.",
+    "stabilityBody": "Our fix list puts bugs and crashes first. Many of the changes in a build come out of testing."
+  },
+  "community": {
+    "title": "Join the halogenOS community",
+    "telegram": "Telegram",
+    "chatName": "The common room",
+    "chatLine": "This is the main group where the community talks.",
+    "newsName": "The bulletin",
+    "newsLine": "You come here to read announcements."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "This policy explains how personal data is processed when you visit the halogenOS website. It is provided pursuant to Article 13 GDPR.",
+    "controllerHeading": "Controller",
+    "controllerBody": "Simão Gomes Viana\nc/o IP-Management #10911\nLudwig-Erhard-Str. 18\n20459 Hamburg\nGermany",
+    "controllerNote": "Data protection enquiries: {email}\nA data protection officer has not been appointed, as the statutory thresholds of § 38 BDSG are not met.",
+    "logsHeading": "Server logs",
+    "logsBody": "Server request logs are the only personal data this website itself processes. The site has no forms, and nothing you enter or upload reaches it. The hosting layer records technical data about each request: IP address, timestamp, requested path, HTTP status, referrer and user agent. The logs are used to operate the site, to diagnose faults, and to detect and defend against attacks and abuse. The logs stay on the server and rotate automatically. They are not used to profile you and are not combined with any other data. You are not required to provide any personal data to use this site.",
+    "logsPurpose": "Purpose: the logs serve the operation of the site, its security, and the diagnosis of faults.",
+    "logsBasis": "Legal basis: the processing rests on Article 6(1)(f) GDPR, the legitimate interest in a functioning, secure service.",
+    "releaseHeading": "Release information from GitHub",
+    "releaseBody": "The server reads the public release record (build dates, counts, file names, file sizes, and file links) from the GitHub API on its own schedule and caches it. These requests carry no visitor data: neither your IP address nor anything you enter reaches GitHub. Your browser does not contact GitHub while you view this site. If you follow a download link, the file comes from GitHub's storage, never from this site. Links you choose to follow are your own navigation.",
+    "cookiesHeading": "Cookies",
+    "cookiesBody": "This site sets no cookies, because it needs none to work. It keeps no session and runs no form. This site stores nothing on your device and reads nothing back from it. No analytics, advertising, tracking or profiling cookies are set. § 25 TDDDG governs storage and access on your device, and this site does neither, so no consent banner is required. A cookie from an earlier version of this site may still sit in your browser, and nothing here sets or reads it.",
+    "notdoHeading": "What we do not do",
+    "notdoBody": "No advertising is displayed on this website. No web analytics, tracking pixels, social media widgets, fonts or scripts are loaded from third parties, because every asset is served from this domain. No personal data is sold, rented or transferred for marketing purposes. No automated decision-making or profiling within the meaning of Article 22 GDPR takes place. This site sends no emails. This website has no accounts and no forms, so there is nothing here for you to enter or upload.",
+    "processorsHeading": "Processors",
+    "processorsBody": "One processor is involved in operating this site. This is Hetzner Online GmbH, which provides server hosting in Germany as a processor under Article 28 GDPR. No data is transferred to a third country outside the EU/EEA. The servers and all stored data are located in the European Union.",
+    "retentionHeading": "Retention",
+    "retentionBody": "This site holds no content you enter, so the only personal data kept is the technical request data described above. Server logs are retained only as long as needed for operation and security and are rotated automatically. Data that must be kept under statutory retention obligations is retained accordingly and otherwise restricted from processing.",
+    "rightsHeading": "Your rights",
+    "rightsBody": "Under the GDPR you have the right to obtain confirmation as to whether your data is processed and to access it (Article 15), to rectification (Article 16), to erasure (Article 17), to restriction of processing (Article 18), to data portability (Article 20), and to object to processing based on legitimate interests (Article 21). Where processing rests on consent, you may withdraw it at any time with effect for the future.",
+    "rightsContact": "To exercise any of these, write to {email}.",
+    "complaintHeading": "Right to lodge a complaint",
+    "complaintBody": "You may lodge a complaint with a supervisory authority, in particular in the Member State of your habitual residence, place of work, or the place of the alleged infringement. The authority competent for this controller is the Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach ({url}).",
+    "changesHeading": "Changes",
+    "changesBody": "This policy may be updated as the site changes. The current version is always available at this address.",
+    "updated": "Last updated: 30 August 2026",
+    "initials": "Pp"
+  },
+  "imprint": {
+    "title": "Legal Notice",
+    "intro": "Information pursuant to § 5 DDG (Digitale-Dienste-Gesetz).",
+    "operatorHeading": "Operator",
+    "operatorBody": "Simão Gomes Viana\nc/o IP-Management #10911\nLudwig-Erhard-Str. 18\n20459 Hamburg\nGermany",
+    "contactHeading": "Contact",
+    "contactPurpose": "Purpose",
+    "contactAddress": "Address",
+    "contactLegal": "General and legal enquiries",
+    "contactPrivacy": "Data protection",
+    "contactAbuse": "Reports of illegal content",
+    "contactNote": "No telephone number is maintained; enquiries are answered by email. Correspondence is accepted in German and English.",
+    "aboutHeading": "About this service",
+    "about": "The halogenOS website presents the halogenOS project, an Android ROM: what it is, which devices it supports, and where its community lives. Its download links point to the project's published release files on GitHub, not to files on this server. It is operated privately and non-commercially: no advertising is shown, no fee is charged, and no data is sold or shared for marketing purposes.",
+    "reportingHeading": "Reporting content",
+    "reportingBody": "If you believe content published here is unlawful or infringes your rights, write to {email} with the exact URL and an explanation. Reports are reviewed by a person and acted on promptly where justified.",
+    "disputeHeading": "Consumer dispute resolution",
+    "disputeBody": "The operator is neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board (§ 36 VSBG).",
+    "liabilityHeading": "Liability for content and links",
+    "liabilityContent": "The site has no user accounts and hosts no third-party material, so everything published here is the project's own content. The operator is accordingly responsible for it under the general law.",
+    "liabilityReports": "Much of that content originates from an open-source project with many contributors over many years. Should anything nevertheless infringe your rights, please report it to {email}; it will be reviewed and, where justified, removed promptly.",
+    "liabilityLinks": "External links are beyond the operator’s control. At the time of linking, no infringements were apparent. Permanent monitoring of linked content is not reasonable without concrete evidence of an infringement; upon becoming aware of infringements, such links will be removed promptly.",
+    "updated": "Last updated: 1 September 2026",
+    "initials": "Ln"
+  },
+  "foot": {
+    "copyright": "© 2026 {name}",
+    "privacy": "Privacy",
+    "imprint": "Legal Notice"
+  }
+}

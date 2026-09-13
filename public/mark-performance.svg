@@ -1,0 +1,38 @@
+<!--
+  halogenOS mark, performance variant. The three variants share one triangle geometry so
+  they align with each other.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"
+     role="img" aria-label="halogenOS performance">
+  <defs>
+    <linearGradient id="perf-accent" gradientUnits="userSpaceOnUse" x1="0" y1="36" x2="0" y2="476">
+      <stop offset="0.005" stop-color="#ff6600"/>
+      <stop offset="0.923" stop-color="#ff0000"/>
+    </linearGradient>
+    <linearGradient id="perf-pale" gradientUnits="userSpaceOnUse" x1="0" y1="36" x2="0" y2="476">
+      <stop offset="0" stop-color="#f9eee7"/>
+      <stop offset="1" stop-color="#f9cfd0"/>
+    </linearGradient>
+  </defs>
+
+  <g stroke-linejoin="round" stroke-width="47.14">
+    <path d="M44.84 256 L383.68 75.29 L383.68 436.71 Z"
+          fill="url(#perf-accent)" stroke="url(#perf-accent)"/>
+    <path d="M467.16 256 L128.32 75.29 L128.32 436.71 Z" opacity="0.925"
+          fill="url(#perf-pale)" stroke="url(#perf-pale)"/>
+  </g>
+
+  <!-- Both dial arcs share one centre; the break in the dial is where the needle points. -->
+  <path d="M283.5 220.58
+           A 54.6 54.6 0 0 0 211.2 298.4
+           L 300 298.4
+           A 52.9 52.9 0 0 0 302.78 242.29"
+        fill="none" stroke="url(#perf-accent)" stroke-width="8.66"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M248.1 258.64
+           L287.66 233.04
+           A 2.1 2.1 0 0 1 290.59 235.91
+           L265.8 275.98
+           A 12.7 12.7 0 1 1 248.1 258.64 Z"
+        fill="url(#perf-accent)"/>
+</svg>

@@ -1,0 +1,266 @@
+[
+  {
+    "tag_name": "20260728.0745.38-tb",
+    "name": "[test build] XOS-16.2 28/07/2026 for Pong",
+    "published_at": "2026-07-28T06:50:51Z",
+    "prerelease": true,
+    "html_url": "https://github.com/halogenOS/builds/releases/tag/20260728.0745.38-tb",
+    "assets": [
+      {
+        "name": "boot.img",
+        "size": 100663296,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260728.0745.38-tb/boot.img"
+      },
+      {
+        "name": "halogenOS_Pong-16.2-20260728-064754-OFFICIAL.zip",
+        "size": 1146521759,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260728.0745.38-tb/halogenOS_Pong-16.2-20260728-064754-OFFICIAL.zip"
+      },
+      {
+        "name": "pkmd.bin",
+        "size": 1032,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260728.0745.38-tb/pkmd.bin"
+      },
+      {
+        "name": "recovery.img",
+        "size": 104857600,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260728.0745.38-tb/recovery.img"
+      },
+      {
+        "name": "super_empty.img",
+        "size": 5184,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260728.0745.38-tb/super_empty.img"
+      },
+      {
+        "name": "vendor_boot.img",
+        "size": 100663296,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260728.0745.38-tb/vendor_boot.img"
+      }
+    ]
+  },
+  {
+    "tag_name": "20260707.2230.36-rb",
+    "name": "[release build] XOS-16.2 07/07/2026 for Spacewar",
+    "published_at": "2026-07-07T20:43:15Z",
+    "prerelease": false,
+    "html_url": "https://github.com/halogenOS/builds/releases/tag/20260707.2230.36-rb",
+    "assets": [
+      {
+        "name": "boot.img",
+        "size": 100663296,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260707.2230.36-rb/boot.img"
+      },
+      {
+        "name": "halogenOS_Spacewar-16.2-20260707-204101-OFFICIAL.zip",
+        "size": 1186987330,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260707.2230.36-rb/halogenOS_Spacewar-16.2-20260707-204101-OFFICIAL.zip"
+      },
+      {
+        "name": "pkmd.bin",
+        "size": 1032,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260707.2230.36-rb/pkmd.bin"
+      },
+      {
+        "name": "super_empty.img",
+        "size": 5184,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260707.2230.36-rb/super_empty.img"
+      },
+      {
+        "name": "vendor_boot.img",
+        "size": 100663296,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260707.2230.36-rb/vendor_boot.img"
+      }
+    ]
+  },
+  {
+    "tag_name": "20260703.2349.34-rb",
+    "name": "[release build] XOS-16.2 03/07/2026 for guacamole",
+    "published_at": "2026-07-03T23:04:57Z",
+    "prerelease": false,
+    "html_url": "https://github.com/halogenOS/builds/releases/tag/20260703.2349.34-rb",
+    "assets": [
+      {
+        "name": "boot.img",
+        "size": 100663296,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260703.2349.34-rb/boot.img"
+      },
+      {
+        "name": "halogenOS_guacamole-16.2-20260703-230210-OFFICIAL.zip",
+        "size": 937213569,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260703.2349.34-rb/halogenOS_guacamole-16.2-20260703-230210-OFFICIAL.zip"
+      },
+      {
+        "name": "pkmd.bin",
+        "size": 1032,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260703.2349.34-rb/pkmd.bin"
+      }
+    ]
+  },
+  {
+    "tag_name": "20260703.2234.33-rb",
+    "name": "[release build] XOS-16.2 03/07/2026 for Pong",
+    "published_at": "2026-07-03T21:40:04Z",
+    "prerelease": false,
+    "html_url": "https://github.com/halogenOS/builds/releases/tag/20260703.2234.33-rb",
+    "assets": [
+      {
+        "name": "boot.img",
+        "size": 100663296,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260703.2234.33-rb/boot.img"
+      },
+      {
+        "name": "halogenOS_Pong-16.2-20260703-213704-OFFICIAL.zip",
+        "size": 1146480510,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260703.2234.33-rb/halogenOS_Pong-16.2-20260703-213704-OFFICIAL.zip"
+      },
+      {
+        "name": "pkmd.bin",
+        "size": 1032,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260703.2234.33-rb/pkmd.bin"
+      },
+      {
+        "name": "recovery.img",
+        "size": 104857600,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260703.2234.33-rb/recovery.img"
+      },
+      {
+        "name": "super_empty.img",
+        "size": 5184,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260703.2234.33-rb/super_empty.img"
+      },
+      {
+        "name": "vendor_boot.img",
+        "size": 100663296,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260703.2234.33-rb/vendor_boot.img"
+      }
+    ]
+  },
+  {
+    "tag_name": "20260602.0800.30-rcb",
+    "name": "[release candidate build] XOS-16.2 02/06/2026 for Pong",
+    "published_at": "2026-06-02T07:02:57Z",
+    "prerelease": true,
+    "html_url": "https://github.com/halogenOS/builds/releases/tag/20260602.0800.30-rcb",
+    "assets": [
+      {
+        "name": "boot.img",
+        "size": 100663296,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260602.0800.30-rcb/boot.img"
+      },
+      {
+        "name": "halogenOS_Pong-16.2-20260602-065959-OFFICIAL.zip",
+        "size": 1146276416,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260602.0800.30-rcb/halogenOS_Pong-16.2-20260602-065959-OFFICIAL.zip"
+      },
+      {
+        "name": "pkmd.bin",
+        "size": 1032,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260602.0800.30-rcb/pkmd.bin"
+      },
+      {
+        "name": "recovery.img",
+        "size": 104857600,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260602.0800.30-rcb/recovery.img"
+      },
+      {
+        "name": "super_empty.img",
+        "size": 5184,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260602.0800.30-rcb/super_empty.img"
+      },
+      {
+        "name": "vendor_boot.img",
+        "size": 100663296,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20260602.0800.30-rcb/vendor_boot.img"
+      }
+    ]
+  },
+  {
+    "tag_name": "20250422.2044.4-tb",
+    "name": "[test build] XOS-15.2 22/04/2025 for Spacewar",
+    "published_at": "2025-04-22T20:50:58Z",
+    "prerelease": true,
+    "html_url": "https://github.com/halogenOS/builds/releases/tag/20250422.2044.4-tb",
+    "assets": []
+  },
+  {
+    "tag_name": "20241024.0537.3-tb",
+    "name": "[test build] XOS-15.0 24/10/2024 for Spacewar",
+    "published_at": "2024-10-24T06:07:43Z",
+    "prerelease": true,
+    "html_url": "https://github.com/halogenOS/builds/releases/tag/20241024.0537.3-tb",
+    "assets": [
+      {
+        "name": "halogenOS_Spacewar-15.0-20241024-053834-OFFICIAL.zip",
+        "size": 1374414399,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20241024.0537.3-tb/halogenOS_Spacewar-15.0-20241024-053834-OFFICIAL.zip"
+      },
+      {
+        "name": "halogenOS_Spacewar-15.0-20241024-053834-OFFICIAL.zip.sha256sum",
+        "size": 119,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/20241024.0537.3-tb/halogenOS_Spacewar-15.0-20241024-053834-OFFICIAL.zip.sha256sum"
+      }
+    ]
+  },
+  {
+    "tag_name": "v20220815.1943.238-tb",
+    "name": "[test build] XOS 12.1 15/08/2022 for guacamole",
+    "published_at": "2022-08-15T21:49:05Z",
+    "prerelease": true,
+    "html_url": "https://github.com/halogenOS/builds/releases/tag/v20220815.1943.238-tb",
+    "assets": [
+      {
+        "name": "halogenOS_guacamole-12.1-20220815-1947-rolling-OFFICIAL.zip",
+        "size": 728292235,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/v20220815.1943.238-tb/halogenOS_guacamole-12.1-20220815-1947-rolling-OFFICIAL.zip"
+      },
+      {
+        "name": "boot.img",
+        "size": 100663296,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/v20220815.1943.238-tb/boot.img"
+      },
+      {
+        "name": "op7pro_fw_old_do_not_use.zip",
+        "size": 95104951,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/v20220815.1943.238-tb/op7pro_fw_old_do_not_use.zip"
+      },
+      {
+        "name": "op7pro_fw.zip",
+        "size": 95104960,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/v20220815.1943.238-tb/op7pro_fw.zip"
+      }
+    ]
+  },
+  {
+    "tag_name": "v20220815.1756.237-tb",
+    "name": "[test build] XOS 12.1 15/08/2022 for cheeseburger",
+    "published_at": "2022-08-15T22:37:23Z",
+    "prerelease": true,
+    "html_url": "https://github.com/halogenOS/builds/releases/tag/v20220815.1756.237-tb",
+    "assets": [
+      {
+        "name": "halogenOS_cheeseburger-12.1-20220815-1807-rolling-OFFICIAL.zip",
+        "size": 718226449,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/v20220815.1756.237-tb/halogenOS_cheeseburger-12.1-20220815-1807-rolling-OFFICIAL.zip"
+      },
+      {
+        "name": "boot.img",
+        "size": 18363688,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/v20220815.1756.237-tb/boot.img"
+      }
+    ]
+  },
+  {
+    "tag_name": "v20190825.1931.000-tb",
+    "name": "[Test build][BETA] XOS 9.0 for cheeseburger 2019/08/25",
+    "published_at": "2019-08-25T17:46:01Z",
+    "prerelease": true,
+    "html_url": "https://github.com/halogenOS/builds/releases/tag/v20190825.1931.000-tb",
+    "assets": [
+      {
+        "name": "XOS_cheeseburger-9.0-20190825-1456-UNOFFICIAL.zip",
+        "size": 760168532,
+        "browser_download_url": "https://github.com/halogenOS/builds/releases/download/v20190825.1931.000-tb/XOS_cheeseburger-9.0-20190825-1456-UNOFFICIAL.zip"
+      }
+    ]
+  }
+]

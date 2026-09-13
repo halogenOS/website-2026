@@ -1,0 +1,212 @@
+/* Sanctioned exception: route-scoped token overrides belong on body because the backdrop is a sibling of the
+   page. The wedge and its corner overlay must shrink together while keeping the white brand link covered. */
+body.depth {
+  /* This width is independent of the laptop wedge width; brand contrast here is 5.73–9.66:1 across themes and
+     sizes. */
+  --wedge-edge-x: 62%;
+  --wedge-edge-y: 26%;
+  --wedge-corner-reach: 34% 26% at 2% 1%;
+
+  /* Trail ink clears 4.5:1 over the bright green field; brand ink is independent. Depths reserving clearance
+     override both roles beside their field geometry. */
+  --trail-ink: var(--_base-990);
+  --trail-ink-current: var(--trail-ink);
+
+  /* Transparent everywhere except the dark desk device depth; --shadow-trail-backdrop holds the geometry. */
+  --trail-backdrop: transparent;
+}
+
+/* Depth fields may use warm element hues; the small-accent restriction applies elsewhere. */
+body.depth-devices {
+  /* --element is inherited by all depth accents; its source token already changes with the theme. */
+  --element: var(--element-bromine);
+
+  --wedge-deep: oklch(0.36 0.1 43.6);
+  --wedge-core: oklch(0.5 0.125 43.6);
+  --wedge-bright: oklch(0.62 0.135 46);
+  --wedge-outline: oklch(0.78 0.12 50);
+}
+
+body.depth-devices {
+  --fleck-neutral-dim: color-mix(in oklab, oklch(0.97 0.015 55) 51%, transparent);
+  --fleck-neutral-bright: color-mix(in oklab, oklch(0.97 0.015 55) 66%, transparent);
+  --fleck-accent-pale-dim: color-mix(in oklab, oklch(0.9 0.06 50) 44%, transparent);
+  --fleck-accent-pale-bright: color-mix(in oklab, oklch(0.9 0.06 50) 69%, transparent);
+  --fleck-accent-dim: color-mix(in oklab, oklch(0.7 0.13 46) 56%, transparent);
+  --fleck-accent-bright: color-mix(in oklab, oklch(0.7 0.13 46) 67%, transparent);
+  --fleck-cool-dim: color-mix(in oklab, oklch(0.66 0.1 36) 45%, transparent);
+  --fleck-cool-bright: color-mix(in oklab, oklch(0.66 0.1 36) 70%, transparent);
+  --fleck-spore-accent: color-mix(in oklab, oklch(0.7 0.13 46) 21%, transparent);
+  --fleck-spore-cool: color-mix(in oklab, oklch(0.6 0.09 36) 18%, transparent);
+  --fleck-spore-pale: color-mix(in oklab, oklch(0.9 0.06 50) 14%, transparent);
+}
+
+@media (prefers-color-scheme: light) {
+  body.depth-devices {
+    --wedge-deep: oklch(0.42 0.11 43.6);
+    --wedge-core: oklch(0.54 0.12 43.6);
+    --wedge-bright: oklch(0.64 0.125 46);
+    --wedge-outline: oklch(0.7 0.13 48);
+    --fleck-neutral-dim: color-mix(in oklab, oklch(0.45 0.08 45) 32%, transparent);
+    --fleck-neutral-bright: color-mix(in oklab, oklch(0.45 0.08 45) 42%, transparent);
+    --fleck-accent-pale-dim: color-mix(in oklab, oklch(0.5 0.1 46) 30%, transparent);
+    --fleck-accent-pale-bright: color-mix(in oklab, oklch(0.5 0.1 46) 44%, transparent);
+    --fleck-accent-dim: color-mix(in oklab, oklch(0.48 0.11 44) 36%, transparent);
+    --fleck-accent-bright: color-mix(in oklab, oklch(0.48 0.11 44) 43%, transparent);
+    --fleck-cool-dim: color-mix(in oklab, oklch(0.5 0.09 36) 31%, transparent);
+    --fleck-cool-bright: color-mix(in oklab, oklch(0.5 0.09 36) 45%, transparent);
+    --fleck-spore-accent: color-mix(in oklab, oklch(0.48 0.11 44) 17%, transparent);
+    --fleck-spore-cool: color-mix(in oklab, oklch(0.5 0.09 36) 15%, transparent);
+    --fleck-spore-pale: color-mix(in oklab, oklch(0.5 0.1 46) 13%, transparent);
+  }
+}
+
+/* Feature fields retain the device field's lightness and chroma to preserve contrast with wedge ink. */
+body.depth-features {
+  --element: var(--element-fluorine);
+
+  --wedge-deep: oklch(0.36 0.1 118);
+  --wedge-core: oklch(0.5 0.125 120);
+  --wedge-bright: oklch(0.62 0.135 122);
+  --wedge-outline: oklch(0.78 0.12 125);
+}
+
+body.depth-features {
+  --fleck-neutral-dim: color-mix(in oklab, oklch(0.97 0.015 112) 51%, transparent);
+  --fleck-neutral-bright: color-mix(in oklab, oklch(0.97 0.015 112) 66%, transparent);
+  --fleck-accent-pale-dim: color-mix(in oklab, oklch(0.9 0.06 115) 44%, transparent);
+  --fleck-accent-pale-bright: color-mix(in oklab, oklch(0.9 0.06 115) 69%, transparent);
+  --fleck-accent-dim: color-mix(in oklab, oklch(0.7 0.13 118) 56%, transparent);
+  --fleck-accent-bright: color-mix(in oklab, oklch(0.7 0.13 118) 67%, transparent);
+  --fleck-cool-dim: color-mix(in oklab, oklch(0.66 0.1 128) 45%, transparent);
+  --fleck-cool-bright: color-mix(in oklab, oklch(0.66 0.1 128) 70%, transparent);
+  --fleck-spore-accent: color-mix(in oklab, oklch(0.7 0.13 118) 21%, transparent);
+  --fleck-spore-cool: color-mix(in oklab, oklch(0.6 0.09 128) 18%, transparent);
+  --fleck-spore-pale: color-mix(in oklab, oklch(0.9 0.06 115) 14%, transparent);
+}
+
+@media (prefers-color-scheme: light) {
+  body.depth-features {
+    --wedge-deep: oklch(0.42 0.11 118);
+    --wedge-core: oklch(0.54 0.12 120);
+    --wedge-bright: oklch(0.64 0.125 122);
+    --wedge-outline: oklch(0.7 0.13 124);
+    --fleck-neutral-dim: color-mix(in oklab, oklch(0.45 0.08 112) 32%, transparent);
+    --fleck-neutral-bright: color-mix(in oklab, oklch(0.45 0.08 112) 42%, transparent);
+    --fleck-accent-pale-dim: color-mix(in oklab, oklch(0.5 0.1 115) 30%, transparent);
+    --fleck-accent-pale-bright: color-mix(in oklab, oklch(0.5 0.1 115) 44%, transparent);
+    --fleck-accent-dim: color-mix(in oklab, oklch(0.48 0.11 118) 36%, transparent);
+    --fleck-accent-bright: color-mix(in oklab, oklch(0.48 0.11 118) 43%, transparent);
+    --fleck-cool-dim: color-mix(in oklab, oklch(0.5 0.09 128) 31%, transparent);
+    --fleck-cool-bright: color-mix(in oklab, oklch(0.5 0.09 128) 45%, transparent);
+    --fleck-spore-accent: color-mix(in oklab, oklch(0.48 0.11 118) 17%, transparent);
+    --fleck-spore-cool: color-mix(in oklab, oklch(0.5 0.09 128) 15%, transparent);
+    --fleck-spore-pale: color-mix(in oklab, oklch(0.5 0.1 115) 13%, transparent);
+  }
+}
+
+/* Community fields retain the device field's lightness and chroma to preserve contrast with wedge ink. */
+body.depth-community {
+  --element: var(--element-chlorine);
+
+  --wedge-deep: oklch(0.36 0.1 127);
+  --wedge-core: oklch(0.5 0.125 129);
+  --wedge-bright: oklch(0.62 0.135 131);
+  --wedge-outline: oklch(0.78 0.12 134);
+}
+
+body.depth-community {
+  --fleck-neutral-dim: color-mix(in oklab, oklch(0.97 0.015 126) 51%, transparent);
+  --fleck-neutral-bright: color-mix(in oklab, oklch(0.97 0.015 126) 66%, transparent);
+  --fleck-accent-pale-dim: color-mix(in oklab, oklch(0.9 0.06 129) 44%, transparent);
+  --fleck-accent-pale-bright: color-mix(in oklab, oklch(0.9 0.06 129) 69%, transparent);
+  --fleck-accent-dim: color-mix(in oklab, oklch(0.7 0.13 132) 56%, transparent);
+  --fleck-accent-bright: color-mix(in oklab, oklch(0.7 0.13 132) 67%, transparent);
+  --fleck-cool-dim: color-mix(in oklab, oklch(0.66 0.1 140) 45%, transparent);
+  --fleck-cool-bright: color-mix(in oklab, oklch(0.66 0.1 140) 70%, transparent);
+  --fleck-spore-accent: color-mix(in oklab, oklch(0.7 0.13 132) 21%, transparent);
+  --fleck-spore-cool: color-mix(in oklab, oklch(0.6 0.09 140) 18%, transparent);
+  --fleck-spore-pale: color-mix(in oklab, oklch(0.9 0.06 129) 14%, transparent);
+}
+
+@media (prefers-color-scheme: light) {
+  body.depth-community {
+    --wedge-deep: oklch(0.42 0.11 127);
+    --wedge-core: oklch(0.54 0.12 129);
+    --wedge-bright: oklch(0.64 0.125 131);
+    --wedge-outline: oklch(0.7 0.13 133);
+    --fleck-neutral-dim: color-mix(in oklab, oklch(0.45 0.08 126) 32%, transparent);
+    --fleck-neutral-bright: color-mix(in oklab, oklch(0.45 0.08 126) 42%, transparent);
+    --fleck-accent-pale-dim: color-mix(in oklab, oklch(0.5 0.1 129) 30%, transparent);
+    --fleck-accent-pale-bright: color-mix(in oklab, oklch(0.5 0.1 129) 44%, transparent);
+    --fleck-accent-dim: color-mix(in oklab, oklch(0.48 0.11 132) 36%, transparent);
+    --fleck-accent-bright: color-mix(in oklab, oklch(0.48 0.11 132) 43%, transparent);
+    --fleck-cool-dim: color-mix(in oklab, oklch(0.5 0.09 140) 31%, transparent);
+    --fleck-cool-bright: color-mix(in oklab, oklch(0.5 0.09 140) 45%, transparent);
+    --fleck-spore-accent: color-mix(in oklab, oklch(0.48 0.11 132) 17%, transparent);
+    --fleck-spore-cool: color-mix(in oklab, oklch(0.5 0.09 140) 15%, transparent);
+    --fleck-spore-pale: color-mix(in oklab, oklch(0.5 0.1 129) 13%, transparent);
+  }
+}
+
+/* Device pages retain the base blue field; candidate and test colours are shared by shelves and phone rows.
+   Shelf labels reach 7.24:1 and 8.79:1 at night, 5.14:1 and 5.82:1 by day; words and marks also identify each
+   kind. */
+body.depth.depth-device {
+  --element: var(--color-accent);
+
+  --element-candidate: oklch(0.74 0.124 200);
+  --element-test: oklch(0.81 0.085 190);
+}
+
+/* Light-theme build steps stay within sRGB at their darker lightnesses to avoid gamut mapping. */
+@media (prefers-color-scheme: light) {
+  body.depth.depth-device {
+    --element-candidate: oklch(0.48 0.078 200);
+    --element-test: oklch(0.45 0.07 190);
+  }
+}
+
+/* The heading layout and wedge share --field-clearance to prevent low-contrast text over the diagonal. The clamp
+   keeps the field above the fixed-size brand link and below the heading as viewport height changes. */
+@media (width > 760px) {
+  body.depth.depth-device {
+    --field-clearance: clamp(5.75rem, 13svh, 8.75rem);
+    --wedge-edge-y: var(--field-clearance);
+    --trail-ink: var(--color-on-bg-secondary);
+    --trail-ink-current: var(--color-on-bg);
+  }
+}
+
+/* Device ancestor links need a soft backdrop to retain 4.5:1 contrast throughout the field animation. Phone
+   sheets use an opaque surface instead. */
+@media (width > 760px) and (prefers-color-scheme: dark) {
+  body.depth.depth-device {
+    --trail-ink: var(--_base-870);
+    --trail-backdrop: color-mix(in oklab, var(--color-bg) 75%, transparent);
+  }
+}
+
+/* Legal layouts and the wedge share --field-clearance to keep prose off the low-contrast diagonal. The compound
+   selectors override body.depth regardless of import order; 26svh is independent of the corner radius. */
+@media (width > 760px) {
+  body.depth.depth-privacy,
+  body.depth.depth-imprint {
+    --field-clearance: 26svh;
+    --wedge-edge-y: var(--field-clearance);
+    --trail-ink: var(--color-on-bg-secondary);
+    --trail-ink-current: var(--color-on-bg);
+  }
+}
+
+@media (width <= 760px) {
+  /* Phone band dimensions are lengths because they must clear a fixed-size brand link. */
+  /* Media queries cannot read --breakpoint-desk; breakpoint-turns.test.ts checks that this boundary matches it. */
+  body.depth {
+    /* The layout reads --field-clearance as min-height; the corner overlay ends 8px inside the band. */
+    --field-clearance: 104px;
+    --wedge-band-right: 68px;
+    --wedge-band-left: var(--field-clearance);
+    --wedge-corner-reach: 230% calc(var(--field-clearance) - 8px) at 0% 0%;
+  }
+}

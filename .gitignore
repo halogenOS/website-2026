@@ -1,0 +1,44 @@
+TODO.md
+LOCAL.md
+
+# Untracked research material
+notes/
+
+# Dependencies. Both spellings: the trailing slash matches only a directory, and a
+# worktree that links the main checkout's install instead of installing again has a
+# node_modules SYMLINK, which only the bare name matches.
+node_modules/
+node_modules
+
+# Nuxt build and generated output
+.nuxt/
+.output/
+.nitro/
+.cache/
+dist/
+
+# Runtime cache state, never tracked
+.data/
+
+# Written by `nuxt prepare` on every install, so it is generated, never authored
+.nuxtrc
+
+# Test output
+coverage/
+
+# Logs
+*.log
+logs/
+
+# Local environment
+.env
+.env.*
+
+# Design material stays out of committed space.
+public/drafts/
+public/design/
+docs/
+HANDOFF.md
+
+# Worktrees live inside the project, never beside it
+.worktrees/

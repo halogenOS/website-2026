@@ -1,0 +1,162 @@
+/* Sanctioned exception: motion variants combine app state with motion preference.
+   Zero specificity preserves base utilities; entry motion relies on the page's in-view marker. */
+@custom-variant motion-ok {
+  @media (prefers-reduced-motion: no-preference) {
+    &:where([data-mounted], [data-mounted] *) {
+      @slot;
+    }
+  }
+}
+
+@custom-variant motion-entered {
+  @media (prefers-reduced-motion: no-preference) {
+    &:where(.in-view, .in-view *) {
+      @slot;
+    }
+  }
+}
+
+/* Sanctioned exception: the device trail's shadow and its layout share one native scope. */
+@custom-variant trail-shadow {
+  @media (width >= 761px) and (prefers-color-scheme: dark) {
+    &:where(body.depth.depth-device *) {
+      @slot;
+    }
+  }
+}
+
+/* Sanctioned exception: mutually exclusive shape variants avoid dependence on Tailwind emission order.
+   Media queries cannot read tokens; breakpoint-turns.test.ts checks 761px against --breakpoint-desk. */
+@custom-variant stage-wide {
+  @media (width >= 761px) and (aspect-ratio >= 1) {
+    @slot;
+  }
+}
+
+@custom-variant stage-tall {
+  @media (width >= 761px) and (aspect-ratio < 1) {
+    @slot;
+  }
+}
+
+/* Sanctioned exception: mutually exclusive field variants keep competing sizing properties from overlapping.
+   Media queries cannot read tokens; breakpoint-turns.test.ts checks the 1120px boundary against field.css. */
+@custom-variant field-corner {
+  @media (width >= 761px) and (width <= 1120px) and (aspect-ratio >= 1) {
+    @slot;
+  }
+}
+
+@custom-variant field-floor {
+  @media (width > 1120px) and (aspect-ratio >= 1) {
+    @slot;
+  }
+}
+
+/* Sanctioned exception: 360px fits the table, brand, spacing and footer; shorter windows need the field slot.
+   Compose both variants with stage-wide:; breakpoint-turns.test.ts enforces the single height boundary. */
+@custom-variant brand-over-table {
+  @media (height >= 360px) {
+    @slot;
+  }
+}
+
+@custom-variant brand-in-field {
+  @media (height < 360px) {
+    @slot;
+  }
+}
+
+/* Sanctioned exception: cards and descendants share one ignition state without group specificity.
+   Hover must work without @media (hover: hover), which Tailwind's group-hover requires. */
+@custom-variant ignited {
+  &:is(
+    :where(.group):hover, :where(.group):hover *,
+    :where(.group):focus-visible, :where(.group):focus-visible *,
+    :where(.group)[data-lit], :where(.group)[data-lit] *
+  ) {
+    @slot;
+  }
+}
+
+/* Sanctioned exception: view-transition pseudo-elements cannot receive template classes.
+   Nuxt skips these transitions for reduced motion. */
+::view-transition-group(brand) {
+  animation-duration: 350ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+/* Hide the old wordmark to keep a single mark visible during movement. */
+::view-transition-old(brand) {
+  animation: none;
+  opacity: 0;
+}
+
+::view-transition-new(brand) {
+  animation: none;
+}
+
+/* Hide the old backdrop so it does not overlap the live clip and colour transition. */
+::view-transition-group(world) {
+  animation: none;
+}
+
+::view-transition-old(world) {
+  animation: none;
+  opacity: 0;
+}
+
+::view-transition-new(world) {
+  animation: none;
+}
+
+/* Sanctioned exception: the snapshot needs keyframes because it cannot receive transition classes. */
+::view-transition-old(tapped) {
+  animation: 240ms cubic-bezier(0.3, 0, 0.7, 0.2) both vt-toward;
+}
+
+@keyframes vt-toward {
+  to {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+
+::view-transition-old(root) {
+  animation: 180ms cubic-bezier(0.4, 0, 1, 1) both vt-leave;
+}
+
+::view-transition-new(root) {
+  animation: 260ms cubic-bezier(0, 0, 0.2, 1) 80ms both vt-enter;
+}
+
+/* Sanctioned exception: root snapshots cannot receive template transition classes, so they need keyframes here. */
+@keyframes vt-leave {
+  to {
+    opacity: 0;
+    transform: translateY(-0.75rem);
+  }
+}
+
+@keyframes vt-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+/* Sanctioned exception: a repeating tile loop needs keyframes; background position avoids oversized
+   transformed layers that cause compositor flashing, and one-pixel steps limit repaints. */
+/* Keep each duration literal: theme variables resolve at the root, not on each layer.
+   --drift-tile resolves inside the keyframe on the animated element; step counts must equal tile sizes. */
+@keyframes drift {
+  to {
+    background-position: 0 calc(var(--drift-tile) * -1);
+  }
+}
+
+@theme {
+  --animate-drift-far: drift 150s steps(320) infinite;
+  --animate-drift-near: drift 98s steps(470) infinite;
+  --animate-drift-spore: drift 210s steps(880) infinite;
+}

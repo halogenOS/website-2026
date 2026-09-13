@@ -1,0 +1,47 @@
+<!--
+  halogenOS mark, stability variant. The three variants share one triangle geometry so
+  they align with each other.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"
+     role="img" aria-label="halogenOS stability">
+  <defs>
+    <linearGradient id="stab-accent" gradientUnits="userSpaceOnUse" x1="0" y1="36" x2="0" y2="476">
+      <stop offset="0.057" stop-color="#ffb8c0"/>
+      <stop offset="1" stop-color="#1a3ad5"/>
+    </linearGradient>
+    <!-- A userSpaceOnUse gradient resolves in the rotated rocket group's own frame, so this
+         is the accent ramp with its endpoints mapped back through that rotation. -->
+    <linearGradient id="stab-accent-rot" gradientUnits="userSpaceOnUse"
+                    x1="-155.56" y1="-155.56" x2="155.56" y2="155.56">
+      <stop offset="0.057" stop-color="#ffb8c0"/>
+      <stop offset="1" stop-color="#1a3ad5"/>
+    </linearGradient>
+    <linearGradient id="stab-pale" gradientUnits="userSpaceOnUse" x1="0" y1="36" x2="0" y2="476">
+      <stop offset="0" stop-color="#efeffa"/>
+      <stop offset="1" stop-color="#faf1f7"/>
+    </linearGradient>
+  </defs>
+
+  <g stroke-linejoin="round" stroke-width="47.14">
+    <path d="M44.84 256 L383.68 75.29 L383.68 436.71 Z"
+          fill="url(#stab-accent)" stroke="url(#stab-accent)"/>
+    <path d="M467.16 256 L128.32 75.29 L128.32 436.71 Z" opacity="0.925"
+          fill="url(#stab-pale)" stroke="url(#stab-pale)"/>
+  </g>
+
+  <g transform="translate(256 256) rotate(45)"
+     fill="none" stroke="url(#stab-accent-rot)" stroke-width="9.95"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 -88.7
+             C 18.34 -67.79 27.28 -52.75 28.5 -21.8
+             C 29.36 -4.07 19.54 15.01 20.8 22.5
+             L -20.8 22.5
+             C -19.54 15.01 -29.36 -4.07 -28.5 -21.8
+             C -27.28 -52.75 -18.34 -67.79 0 -88.7 Z"/>
+    <!-- Both ends of each fin stop on the hull centre line, under the hull's stroke. -->
+    <path d="M-28 -15.4 L-48.5 -1.7 L-48.5 33.75 L-20.8 22.5"/>
+    <path d="M28 -15.4 L48.5 -1.7 L48.5 33.75 L20.8 22.5"/>
+    <path d="M0 89.7 L13.4 64.67 A 15.2 15.2 0 1 0 -13.4 64.67 Z"/>
+    <circle cx="0" cy="-32.6" r="11.65" fill="url(#stab-accent-rot)" stroke="none"/>
+  </g>
+</svg>

@@ -1,0 +1,263 @@
+@utility bg-next {
+  /* Body receives its background from the base default, without a .bg-bg class.
+     Its type selector lets inner surface classes take precedence. */
+  body & {
+    @apply bg-surface;
+  }
+
+  .bg-bg & {
+    @apply bg-surface;
+  }
+
+  .bg-surface & {
+    @apply bg-surface-raised;
+  }
+
+  .bg-surface-raised & {
+    @apply bg-surface-raised;
+  }
+}
+
+@utility bg-next-hover {
+  body & {
+    @apply bg-surface-raised;
+  }
+
+  .bg-bg & {
+    @apply bg-surface-raised;
+  }
+
+  .bg-surface & {
+    @apply bg-surface-raised;
+  }
+
+  .bg-surface-raised & {
+    @apply bg-surface-raised;
+  }
+}
+
+/* Sanctioned exception: shared gradient stacks avoid repeating long values at call sites.
+   Tile size and opacity stay with the flecks they were tuned for. */
+
+/* Light uses gradients, not filters or glow shadows; arrival table cells alone use backdrop blur for glass. */
+
+@utility backdrop-far {
+  opacity: 0.44;
+  background-image:
+    radial-gradient(circle 1.32px at 103.6px 48.3px, var(--fleck-accent-pale-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 0.85px at 171.5px 117.0px, var(--fleck-neutral-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 0.86px at 12.0px 138.8px, var(--fleck-cool-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 0.9px at 135.8px 264.6px, var(--fleck-accent-pale-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 1.26px at 200.8px 303.3px, var(--fleck-neutral-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 1.49px at 312.4px 14.9px, var(--fleck-cool-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 1.05px at 46.2px 37.7px, var(--fleck-accent-pale-bright) 0 42%, transparent 100%),
+    radial-gradient(circle 1.31px at 57.8px 186.1px, var(--fleck-neutral-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 0.85px at 175.3px 20.1px, var(--fleck-cool-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 1.05px at 217.7px 136.8px, var(--fleck-accent-pale-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 1.44px at 145.0px 95.9px, var(--fleck-neutral-bright) 0 42%, transparent 100%),
+    radial-gradient(circle 1.22px at 78.1px 183.8px, var(--fleck-cool-bright) 0 42%, transparent 100%),
+    radial-gradient(circle 1.58px at 233.4px 92.1px, var(--fleck-accent-pale-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 0.92px at 133.8px 242.3px, var(--fleck-neutral-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 1.41px at 12.5px 213.8px, var(--fleck-cool-dim) 0 42%, transparent 100%);
+  background-size: var(--spacing-fleck-far) var(--spacing-fleck-far);
+}
+
+@utility backdrop-near {
+  opacity: 0.38;
+  background-image:
+    radial-gradient(circle 1.87px at 318.2px 368.9px, var(--fleck-neutral-bright) 0 42%, transparent 100%),
+    radial-gradient(circle 1.62px at 185.0px 468.5px, var(--fleck-accent-pale-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 1.66px at 122.7px 122.4px, var(--fleck-accent-dim) 0 42%, transparent 100%),
+    radial-gradient(circle 1.64px at 50.6px 153.0px, var(--fleck-neutral-bright) 0 42%, transparent 100%),
+    radial-gradient(circle 1.52px at 94.8px 33.3px, var(--fleck-accent-pale-bright) 0 42%, transparent 100%),
+    radial-gradient(circle 1.82px at 182.6px 344.7px, var(--fleck-accent-bright) 0 42%, transparent 100%),
+    radial-gradient(circle 1.8px at 46.7px 342.2px, var(--fleck-neutral-bright) 0 42%, transparent 100%),
+    radial-gradient(circle 1.9px at 309.4px 140.6px, var(--fleck-accent-pale-bright) 0 42%, transparent 100%),
+    radial-gradient(circle 1.56px at 372.2px 448.3px, var(--fleck-accent-bright) 0 42%, transparent 100%),
+    radial-gradient(circle 1.73px at 343.7px 376.7px, var(--fleck-neutral-dim) 0 42%, transparent 100%);
+  background-size: var(--spacing-fleck-near) var(--spacing-fleck-near);
+}
+
+@utility backdrop-spore {
+  background-image:
+    radial-gradient(circle 5.4px at 78px 96px, var(--fleck-spore-accent) 0 34%, transparent 100%),
+    radial-gradient(circle 4.2px at 496px 212px, var(--fleck-spore-cool) 0 34%, transparent 100%),
+    radial-gradient(circle 6.1px at 268px 604px, var(--fleck-spore-pale) 0 34%, transparent 100%),
+    radial-gradient(circle 4.8px at 702px 448px, var(--fleck-spore-accent) 0 34%, transparent 100%),
+    radial-gradient(circle 5.6px at 604px 786px, var(--fleck-spore-cool) 0 34%, transparent 100%);
+  background-size: var(--spacing-fleck-spore) var(--spacing-fleck-spore);
+}
+
+@utility backdrop-wedge {
+  background-image:
+    radial-gradient(var(--wedge-corner-reach), var(--wedge-corner), transparent 100%),
+    linear-gradient(126deg, var(--tw-gradient-from) 0%, var(--tw-gradient-via) 50%, var(--tw-gradient-to) 100%);
+}
+
+@utility backdrop-night {
+  background-image:
+    radial-gradient(60% 85% at 78% 45%, var(--glow-1), transparent 70%),
+    radial-gradient(170% 20% at 50% 96%, var(--glow-1), transparent 70%);
+}
+
+/* Sanctioned exception: shared gradient stacks keep tube caps aligned with the gas band.
+   Resting and lit layers animate opacity because background-image colour mixes cannot transition. */
+@utility cell-tube {
+  background-image:
+    linear-gradient(180deg, var(--glass-gloss), transparent 55%),
+    linear-gradient(90deg, var(--glass-cap) 0 5px, transparent 5px calc(100% - 5px),
+      var(--glass-cap) calc(100% - 5px) 100%),
+    linear-gradient(90deg, transparent 0 5px,
+      color-mix(in oklab, var(--element) 32%, var(--glass-dim)) 5px calc(100% - 5px),
+      transparent calc(100% - 5px) 100%);
+}
+
+@utility cell-tube-lit {
+  background-image:
+    linear-gradient(90deg, transparent 0 5px,
+      color-mix(in oklab, var(--element) 78%, var(--glass-lit)) 5px calc(100% - 5px),
+      transparent calc(100% - 5px) 100%),
+    linear-gradient(180deg, var(--glass-gloss), transparent 55%);
+}
+
+/* Sanctioned exception: the paired gradients share geometry across cards and theme-dependent strengths.
+   The wash must remain visible at rest; ignition only raises its opacity. */
+@utility room-wash {
+  background-image:
+    radial-gradient(120% 150% at 10% -6%,
+      color-mix(in oklab, var(--element) var(--room-wash-near), transparent), transparent 66%),
+    radial-gradient(75% 65% at 92% 96%,
+      color-mix(in oklab, var(--element) var(--room-wash-far), transparent), transparent 72%);
+}
+
+/* Sanctioned exception: one shared stack keeps ring falloffs together.
+   One-pixel feathering avoids jagged circle edges. */
+@utility room-ripples {
+  background-image:
+    radial-gradient(circle at calc(100% - 6px) -8px, transparent 33px,
+      color-mix(in oklab, var(--element) 30%, transparent) 34px 35px, transparent 36px),
+    radial-gradient(circle at calc(100% - 6px) -8px, transparent 63px,
+      color-mix(in oklab, var(--element) 20%, transparent) 64px 65px, transparent 66px),
+    radial-gradient(circle at calc(100% - 6px) -8px, transparent 93px,
+      color-mix(in oklab, var(--element) 13%, transparent) 94px 95px, transparent 96px),
+    radial-gradient(circle at calc(100% - 6px) -8px, transparent 123px,
+      color-mix(in oklab, var(--element) 8%, transparent) 124px 125px, transparent 126px);
+}
+
+/* Sanctioned exception: a shared gradient stack avoids repeating the dot colour in three spans. */
+@utility room-voices {
+  background-image:
+    radial-gradient(circle at 4px 50%,
+      color-mix(in oklab, var(--element) var(--motif-source), transparent) 3.4px, transparent 4.4px),
+    radial-gradient(circle at 20px 50%,
+      color-mix(in oklab, var(--element) var(--motif-source), transparent) 3.4px, transparent 4.4px),
+    radial-gradient(circle at 36px 50%,
+      color-mix(in oklab, var(--element) var(--motif-source), transparent) 3.4px, transparent 4.4px);
+}
+
+/* Sanctioned exception: transition utilities cannot express a repeating alternating translation.
+   The resting position is the first frame, including with reduced motion. */
+@keyframes sway {
+  to {
+    translate: 0 -7px;
+  }
+}
+
+/* Different durations and directions keep adjacent cards from moving as one object. */
+@theme {
+  --animate-sway: sway 15s ease-in-out infinite alternate;
+  --animate-sway-slow: sway 22s ease-in-out infinite alternate-reverse;
+}
+
+/* Sanctioned exception: transition utilities cannot express the tube's multi-step flicker.
+   The final opacity matches the resting tube. */
+@keyframes strike {
+  0% {
+    opacity: 0.4;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0.5;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@theme {
+  --animate-strike: strike 0.5s linear;
+}
+
+/* Sanctioned exception: transition utilities cannot express a repeating opacity loop.
+   Animate only the wash layer so text remains unchanged and reduced motion keeps full light. */
+@keyframes breathe {
+  from {
+    opacity: 0.72;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@theme {
+  --animate-breathe: breathe 14s ease-in-out infinite alternate;
+}
+
+/* Sanctioned exception: transition utilities cannot express the orb's repeating opacity pulse.
+   The resting core remains fully lit with reduced motion. */
+@keyframes orb-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@theme {
+  --animate-orb-turn: spin 44s linear infinite;
+  --animate-orb-turn-back: spin 68s linear infinite reverse;
+  --animate-orb-pulse: orb-pulse 6.5s ease-in-out infinite;
+}
+
+/* Inline values resolve element colours on each painted surface, not at the theme root. */
+@theme inline {
+  --background-image-glow-foot: radial-gradient(130% 56% at 50% 42%, var(--glow-1), transparent 70%);
+  --background-image-shelf-edge: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--color-accent) 17%, transparent) 50%,
+    transparent
+  );
+  --background-image-shelf-baseline: linear-gradient(90deg, var(--color-accent), transparent 135%);
+  --background-image-cell-wash: radial-gradient(
+    120% 150% at 85% 15%, color-mix(in oklab, var(--element) 15%, transparent), transparent 70%
+  );
+  --background-image-voice-disc-blue: radial-gradient(circle at 32% 28%, oklch(0.76 0.085 250), oklch(0.52 0.1 256));
+  --background-image-voice-disc-cyan: radial-gradient(circle at 32% 28%, oklch(0.79 0.09 227), oklch(0.55 0.1 230));
+  --background-image-voice-disc-green: radial-gradient(circle at 32% 28%, oklch(0.76 0.12 131), oklch(0.52 0.11 134));
+  --background-image-voice-disc-violet: radial-gradient(circle at 32% 28%, oklch(0.68 0.12 302), oklch(0.46 0.1 305));
+  --background-image-telegram-pill: linear-gradient(var(--telegram-sky), var(--telegram-sea));
+  --background-image-rule-ramp: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--element) 85%, transparent) 0,
+    color-mix(in oklab, var(--element) 85%, transparent) 72px,
+    var(--color-border) 110px
+  );
+}
