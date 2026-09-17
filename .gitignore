@@ -42,3 +42,6 @@ HANDOFF.md
 
 # Worktrees live inside the project, never beside it
 .worktrees/
+
+# Nix build symlink
+result

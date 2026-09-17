@@ -106,6 +106,28 @@ The cache is written to `.data/cache` relative to the server's working directory
 deployment that wants the cache to survive restarts must run the server from a fixed,
 writable working directory. `.data/` is never tracked.
 
+## Building with Nix
+
+The repository is a flake, so a machine with Nix can build the production site without a
+bun toolchain of its own:
+
+```
+nix build .#halogenos-website
+```
+
+The result holds the Nitro output under `share/halogenos-website` and a
+`bin/halogenos-website` wrapper that starts the Node server on it. The wrapper passes no
+environment of its own, so the three deployment facts above still apply: set `NITRO_HOST`
+or the server binds every interface, set `NITRO_PORT` to move it off 3000, and run it from
+a fixed writable working directory so the release cache under `.data/cache` survives a
+restart.
+
+Dependencies are installed in a separate fixed-output derivation, whose hash covers the
+whole installed tree. Changing `bun.lock` therefore changes that hash: build once, read the
+value Nix reports as the one it got, and write it into the hash table in `nix/package.nix`.
+The table is keyed by system because bun resolves platform-specific packages, and a system
+with no entry fails the build with that instruction rather than installing a foreign tree.
+
 ## Stack
 
 Nuxt 4 with SSR, Nitro as the server, TypeScript throughout, Tailwind 4 for all styling with
