@@ -357,7 +357,7 @@ describe('the upstream budget', () => {
   it('spends exactly one shared walk for every route in this file', () => {
     // The fixture is shorter than a full page, so the walk ends after one request; a
     // second cached function or a per-request fetch would show up here as a multiple.
-    expect(upstreamCalls).toEqual(['/repos/halogenOS/builds/releases?per_page=100&page=1'])
+    expect(upstreamCalls).toEqual(['/repos/halogenOS/releases/releases?per_page=100&page=1'])
   })
 })
 

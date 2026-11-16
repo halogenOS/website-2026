@@ -57,8 +57,8 @@ describe('the release fetcher walk', () => {
     const catalog = await fetcher()
 
     expect(calls.map(call => call.url)).toEqual([
-      'https://mock.invalid/repos/halogenOS/builds/releases?per_page=100&page=1',
-      'https://mock.invalid/repos/halogenOS/builds/releases?per_page=100&page=2',
+      'https://mock.invalid/repos/halogenOS/releases/releases?per_page=100&page=1',
+      'https://mock.invalid/repos/halogenOS/releases/releases?per_page=100&page=2',
     ])
     expect(catalog.devices.Pong).toHaveLength(150)
   })
@@ -89,7 +89,7 @@ describe('the release fetcher walk', () => {
       fetchImpl: countingFetch(pagesFor(1), calls),
     })
     await fetcher()
-    expect(calls[0]!.url).toBe('https://mock.invalid/repos/halogenOS/builds/releases?per_page=100&page=1')
+    expect(calls[0]!.url).toBe('https://mock.invalid/repos/halogenOS/releases/releases?per_page=100&page=1')
   })
 
   it('throws at the page ceiling instead of walking a self-extending upstream', async () => {

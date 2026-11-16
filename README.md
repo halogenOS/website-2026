@@ -77,7 +77,7 @@ The devices page shows each device's newest build date and total build count. Ea
 own page links to the newest build of each kind and to the full build history, which live on
 the `stable`, `candidate`, `test` and `builds` segments under `/devices/<codename>` and carry
 the build cards with direct download links.
-All of it comes from the GitHub release record of `halogenOS/builds`, read at request time
+All of it comes from the GitHub release record of `halogenOS/releases`, read at request time
 and normalized into one structure: a catalog of every listed device's builds, newest first,
 each with its kind, its release notes link and its files.
 

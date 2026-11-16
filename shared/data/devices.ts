@@ -45,4 +45,4 @@ export const devicePath = (device: Device): string =>
   `/devices/${device.codename.toLowerCase()}`
 
 /** Where every build the project has published lives; recorded once for every surface that links it. */
-export const EVERY_BUILD_URL = 'https://github.com/halogenOS/builds/releases'
+export const EVERY_BUILD_URL = 'https://github.com/halogenOS/releases/releases'

@@ -16,7 +16,7 @@ export interface ReleaseFetcherOptions {
 
 export type ReleaseFetcher = () => Promise<ReleaseCatalog>
 
-const RELEASES_PATH = '/repos/halogenOS/builds/releases'
+const RELEASES_PATH = '/repos/halogenOS/releases/releases'
 const PER_PAGE = 100
 const DEFAULT_TIMEOUT_MS = 10_000
 
