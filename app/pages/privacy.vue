@@ -39,11 +39,6 @@ const AUTHORITY_URL = 'https://www.lda.bayern.de'
 // Intent: privacy.controllerHeading labels the controller's identity and address.
 // Intent: privacy.controllerBody identifies the controller; preserve the name, postal address and line breaks.
 // Intent: privacy.controllerNote gives the enquiry contact and officer exemption; preserve {email} and § 38 BDSG.
-// Intent: privacy.logsHeading identifies server logs as the personal data processed.
-// Intent: privacy.logsBody explains recorded request fields, local use without profiling or combining,
-// and the absence of forms or any obligation to provide data.
-// Intent: privacy.logsPurpose states why server logs are needed.
-// Intent: privacy.logsBasis states the legal basis; preserve the article number and legitimate interest.
 // Intent: privacy.releaseHeading introduces access to release data.
 // Intent: privacy.releaseBody discloses server-side release metadata requests without visitor data,
 // no browser contact with GitHub while reading, and GitHub storage access when following download links.
@@ -57,7 +52,7 @@ const AUTHORITY_URL = 'https://www.lda.bayern.de'
 // Intent: privacy.processorsBody names Hetzner Online GmbH under Article 28 GDPR and hosting in Germany;
 // preserve those facts and the absence of transfers outside the EU/EEA.
 // Intent: privacy.retentionHeading introduces storage duration.
-// Intent: privacy.retentionBody explains log rotation, statutory retention and the absence of submitted content.
+// Intent: privacy.retentionBody states that the site stores no personal data: no submitted content, no request logs.
 // Intent: privacy.rightsHeading introduces data protection rights.
 // Intent: privacy.rightsBody lists the rights and their legal bases; preserve every article number.
 // Intent: privacy.rightsContact gives the address for exercising those rights; preserve {email}.
@@ -74,11 +69,6 @@ const SECTIONS: ProseSection[] = [
     heading: 'privacy.controllerHeading',
     body: ['privacy.controllerBody', 'privacy.controllerNote'],
     keepsLineBreaks: true,
-  },
-  {
-    id: 'logs',
-    heading: 'privacy.logsHeading',
-    body: ['privacy.logsBody', 'privacy.logsPurpose', 'privacy.logsBasis'],
   },
   { id: 'release', heading: 'privacy.releaseHeading', body: ['privacy.releaseBody'] },
   { id: 'cookies', heading: 'privacy.cookiesHeading', body: ['privacy.cookiesBody'] },

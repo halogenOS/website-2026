@@ -83,10 +83,6 @@
     "controllerHeading": "Controller",
     "controllerBody": "Simão Gomes Viana\nc/o IP-Management #10911\nLudwig-Erhard-Str. 18\n20459 Hamburg\nGermany",
     "controllerNote": "Data protection enquiries: {email}\nA data protection officer has not been appointed, as the statutory thresholds of § 38 BDSG are not met.",
-    "logsHeading": "Server logs",
-    "logsBody": "Server request logs are the only personal data this website itself processes. The site has no forms, and nothing you enter or upload reaches it. The hosting layer records technical data about each request: IP address, timestamp, requested path, HTTP status, referrer and user agent. The logs are used to operate the site, to diagnose faults, and to detect and defend against attacks and abuse. The logs stay on the server and rotate automatically. They are not used to profile you and are not combined with any other data. You are not required to provide any personal data to use this site.",
-    "logsPurpose": "Purpose: the logs serve the operation of the site, its security, and the diagnosis of faults.",
-    "logsBasis": "Legal basis: the processing rests on Article 6(1)(f) GDPR, the legitimate interest in a functioning, secure service.",
     "releaseHeading": "Release information from GitHub",
     "releaseBody": "The server reads the public release record (build dates, counts, file names, file sizes, and file links) from the GitHub API on its own schedule and caches it. These requests carry no visitor data: neither your IP address nor anything you enter reaches GitHub. Your browser does not contact GitHub while you view this site. If you follow a download link, the file comes from GitHub's storage, never from this site. Links you choose to follow are your own navigation.",
     "cookiesHeading": "Cookies",
@@ -96,7 +92,7 @@
     "processorsHeading": "Processors",
     "processorsBody": "One processor is involved in operating this site. This is Hetzner Online GmbH, which provides server hosting in Germany as a processor under Article 28 GDPR. No data is transferred to a third country outside the EU/EEA. The servers and all stored data are located in the European Union.",
     "retentionHeading": "Retention",
-    "retentionBody": "This site holds no content you enter, so the only personal data kept is the technical request data described above. Server logs are retained only as long as needed for operation and security and are rotated automatically. Data that must be kept under statutory retention obligations is retained accordingly and otherwise restricted from processing.",
+    "retentionBody": "This site holds no content you enter and keeps no request logs, so it stores no personal data about you.",
     "rightsHeading": "Your rights",
     "rightsBody": "Under the GDPR you have the right to obtain confirmation as to whether your data is processed and to access it (Article 15), to rectification (Article 16), to erasure (Article 17), to restriction of processing (Article 18), to data portability (Article 20), and to object to processing based on legitimate interests (Article 21). Where processing rests on consent, you may withdraw it at any time with effect for the future.",
     "rightsContact": "To exercise any of these, write to {email}.",
@@ -104,7 +100,7 @@
     "complaintBody": "You may lodge a complaint with a supervisory authority, in particular in the Member State of your habitual residence, place of work, or the place of the alleged infringement. The authority competent for this controller is the Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach ({url}).",
     "changesHeading": "Changes",
     "changesBody": "This policy may be updated as the site changes. The current version is always available at this address.",
-    "updated": "Last updated: 30 August 2026",
+    "updated": "Last updated: 17 November 2026",
     "initials": "Pp"
   },
   "imprint": {
