@@ -61,66 +61,44 @@
       </component>
     </h2>
 
-    <!-- Every build file must appear, including files without a description mapping. -->
     <div
-      v-if="build.files.length > 0"
+      v-if="offersAnything"
       :class="FILES[role]"
     >
-      <!-- Intent: device.artifactPackage identifies the flashable system archive without requiring filename
-           knowledge. -->
-      <UiFileLink
-        v-if="files.rom"
-        :class="PACKAGE_ROOM[role]"
-        :name="files.rom.name"
-        :size="files.rom.size"
-        :url="files.rom.url"
-        :description="t('device.artifactPackage')"
-        :variant="PACKAGE_VARIANT[role]"
+      <!-- Intent: device.install opens the web installer for this build, the way to install it. -->
+      <UiActionLink
+        v-if="installUrl"
+        :class="ACTION_ROOM[role]"
+        :href="installUrl"
+        :label="t('device.install')"
+        :variant="ACTION_VARIANT[role]"
       />
 
       <!-- Intent: device.artifactBoot, .artifactVendorBoot and .artifactRecovery identify flashable repair images.
-           Files absent from the description mapping still appear without descriptions. -->
+           Images absent from the description mapping appear without descriptions. -->
       <ul
-        v-if="files.artifacts.length > 0"
+        v-if="recoveryFiles.length > 0"
         :class="ARTIFACT_LINE[role]"
         class="list-none"
       >
         <li
-          v-for="artifact in files.artifacts"
-          :key="artifact.file.url"
+          v-for="recovery in recoveryFiles"
+          :key="recovery.file.url"
           :class="ARTIFACT_ITEM[role]"
         >
           <UiFileLink
-            :name="artifact.file.name"
-            :size="artifact.file.size"
-            :url="artifact.file.url"
-            :description="role === 'follower' ? undefined : describe(artifact)"
+            :name="recovery.file.name"
+            :size="recovery.file.size"
+            :url="recovery.file.url"
+            :description="role === 'follower' ? undefined : describe(recovery)"
             :variant="ARTIFACT_VARIANT[role]"
-          />
-        </li>
-      </ul>
-
-      <ul
-        v-if="files.support.length > 0"
-        :class="SUPPORT_LINE[role]"
-        class="list-none"
-      >
-        <li
-          v-for="file in files.support"
-          :key="file.url"
-          :class="SUPPORT_ITEM[role]"
-        >
-          <UiFileLink
-            :name="file.name"
-            :size="file.size"
-            :url="file.url"
-            :variant="SUPPORT_VARIANT[role]"
           />
         </li>
       </ul>
     </div>
 
-    <!-- Intent: device.noFiles states that a listed build has no downloads, without implying an error. -->
+    <!-- Intent: device.noFiles states that a listed build has nothing to install or download, without implying
+         an error. -->
     <p
       v-else
       :class="NOTE_PLACE[role]"
@@ -150,7 +128,7 @@
 <script setup lang="ts">
 import { NuxtLink } from '#components'
 import type { BuildKind, DeviceBuild } from '#shared/types/releases'
-import type { FeaturedArtifact } from '~/utils/builds'
+import type { RecoveryFile } from '~/utils/builds'
 
 const { t } = useI18n()
 const { longDate } = useBuildFormat()
@@ -165,7 +143,6 @@ const props = withDefaults(defineProps<{
   /** The newest build of this kind; omit the component when none exists. */
   build: DeviceBuild
   kind: BuildKind
-  codename: string
   /** Must be unique per page. */
   titleId: string
   /** Omit on the destination page to avoid a self-link. */
@@ -178,9 +155,13 @@ const backing = computed(() => (props.role === 'alone' ? 'solid' : kindCardBacki
 
 const wash = computed(() => (backing.value === 'outline' ? null : WASH[props.role]))
 
-const files = computed(() => featuredFilesOf(props.build, props.codename))
+const recoveryFiles = computed(() => recoveryFilesOf(props.build))
+
+const installUrl = computed(() => installUrlOf(props.build))
+
+const offersAnything = computed(() => installUrl.value !== undefined || recoveryFiles.value.length > 0)
 
 // An empty description key is a locale defect, not an absent description.
-const describe = (artifact: FeaturedArtifact): string | undefined =>
-  artifact.description === undefined ? undefined : t(artifact.description)
+const describe = (recovery: RecoveryFile): string | undefined =>
+  recovery.description === undefined ? undefined : t(recovery.description)
 </script>

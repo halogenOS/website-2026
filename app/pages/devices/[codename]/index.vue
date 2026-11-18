@@ -55,7 +55,6 @@
             <SiteBuildShelf
               :build="featured.lead.build"
               :kind="featured.lead.kind"
-              :codename="device.codename"
               :title-id="`featured-${featured.lead.kind}`"
               :to="sectionPath(featured.lead.kind)"
               class="desk:[--card-room-set:clamp(1rem,3.2svh,2.4rem)]
@@ -76,7 +75,6 @@
                 :key="card.kind"
                 :build="card.build"
                 :kind="card.kind"
-                :codename="device.codename"
                 :title-id="`featured-${card.kind}`"
                 :to="sectionPath(card.kind)"
                 class="stage-wide:pair:min-w-0 stage-wide:pair:flex-1 stage-wide:trio:flex-none

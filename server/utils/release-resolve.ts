@@ -11,6 +11,7 @@ import type {
  * Validate assets separately so one malformed file does not discard its build.
  */
 export interface RawRelease {
+  readonly tag_name: string
   readonly name: string | null
   readonly published_at: string
   readonly prerelease: boolean
@@ -28,6 +29,7 @@ const carriesAnInstant = (value: unknown): value is string =>
 const isRawRelease = (value: unknown): value is RawRelease => {
   const release = value as Partial<RawRelease> | null
   return typeof release === 'object' && release !== null
+    && typeof release.tag_name === 'string'
     && (typeof release.name === 'string' || release.name === null)
     && carriesAnInstant(release.published_at)
     && typeof release.prerelease === 'boolean'
@@ -104,6 +106,7 @@ export const buildReleaseCatalog = (
     const bucket = buckets.get(codename)
     if (!bucket || bucket.length === 0) continue
     devices[codename] = [...bucket].sort(newestFirst).map(release => ({
+      tag: release.tag_name,
       publishedAt: release.published_at,
       kind: kindOf(release),
       series: seriesOf(release),

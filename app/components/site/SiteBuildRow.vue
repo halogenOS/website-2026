@@ -32,20 +32,20 @@
     </div>
 
     <div class="mt-[0.4rem] desk:mt-0">
-      <UiFileLink
-        v-if="rom"
-        :name="rom.name"
-        :size="rom.size"
-        :url="rom.url"
+      <!-- Intent: device.install opens the web installer for this build, the way to install it. -->
+      <UiActionLink
+        v-if="installUrl"
+        :href="installUrl"
+        :label="t('device.install')"
         variant="row"
       />
       <!-- Trio is the first width that fits five chips on one line; the cap prevents a lone chip filling the row. -->
       <ul
-        v-if="pieces.length > 0"
+        v-if="recoveryFiles.length > 0"
         class="mt-[0.35rem] flex flex-wrap gap-[0.3rem]"
       >
         <li
-          v-for="file in pieces"
+          v-for="file in recoveryFiles"
           :key="file.url"
           class="trio:max-w-[22rem] trio:flex-[1_1_auto]"
         >
@@ -57,10 +57,10 @@
           />
         </li>
       </ul>
-      <!-- Intent: device.noFiles states that this listed build shipped nothing to
-           download, without reading as an error. -->
+      <!-- Intent: device.noFiles states that this listed build offers nothing to
+           install or download, without reading as an error. -->
       <p
-        v-if="build.files.length === 0"
+        v-if="!installUrl && recoveryFiles.length === 0"
         class="inline-block rounded-lg border border-dashed border-border px-[0.6rem] py-[0.3rem]
                text-[0.8rem] text-on-surface-secondary"
       >
@@ -95,9 +95,8 @@ const props = defineProps<{
   build: DeviceBuild
   /** Use the position in the complete device history so anchors remain consistent. */
   index: number
-  codename: string
 }>()
 
-const rom = computed(() => packageOf(props.build, props.codename))
-const pieces = computed(() => piecesOf(props.build, props.codename))
+const recoveryFiles = computed(() => recoveryFilesOf(props.build).map(recovery => recovery.file))
+const installUrl = computed(() => installUrlOf(props.build))
 </script>

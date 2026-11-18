@@ -34,7 +34,6 @@
     "latestTest": "Newest test build",
     "latestBuilds": "Latest builds",
     "allBuilds": "All builds",
-    "artifactPackage": "Flashable OS zip",
     "artifactBoot": "Boot image",
     "artifactVendorBoot": "Vendor boot image",
     "artifactRecovery": "Recovery image",
@@ -45,6 +44,7 @@
       "test": "Test build"
     },
     "notes": "Build notes",
+    "install": "Install",
     "download": "Download",
     "timeline": "Build timeline",
     "capOldest": "Oldest",

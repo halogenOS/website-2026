@@ -26,6 +26,8 @@ export interface BuildFile {
  * build with no files or a partial set is an ordinary value, not an error.
  */
 export interface DeviceBuild {
+  /** The record's `tag_name`, which names the release on the forge and in the installer. */
+  readonly tag: string
   /** The record's `published_at`, the fixed-width UTC instant, carried whole. */
   readonly publishedAt: string
   readonly kind: BuildKind

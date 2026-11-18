@@ -46,3 +46,6 @@ export const devicePath = (device: Device): string =>
 
 /** Where every build the project has published lives; recorded once for every surface that links it. */
 export const EVERY_BUILD_URL = 'https://github.com/halogenOS/releases/releases'
+
+/** The web installer, which installs the release named by its `release` query parameter. */
+export const INSTALLER_URL = 'https://install.halogenos.org/'

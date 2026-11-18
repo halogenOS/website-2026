@@ -1,22 +1,49 @@
 // The resolver supplies builds newest first; the first match is the newest without sorting again.
 
+import { INSTALLER_URL } from '#shared/data/devices'
 import type { BuildFile, BuildKind, DeviceBuild } from '#shared/types/releases'
 
-/**
- * Device-named archives identify the system package; guacamole vendor firmware archives can be larger.
- * Size alone cannot distinguish them.
- */
-export const packageOf = (build: DeviceBuild, codename: string): BuildFile | undefined => {
-  const named = `_${codename.toLowerCase()}-`
-  return build.files.find((file) => {
-    const name = file.name.toLowerCase()
-    return name.endsWith('.zip') && name.includes(named)
-  })
+interface RecoveryImage {
+  readonly name: string
+  /** The description's i18n key, or undefined for an image named by its file name alone. */
+  readonly description?: string
 }
 
-export const piecesOf = (build: DeviceBuild, codename: string): readonly BuildFile[] => {
-  const packaged = packageOf(build, codename)
-  return packaged === undefined ? build.files : build.files.filter(file => file !== packaged)
+// The images a recovery needs, in the order the installer writes them before it reboots into
+// fastbootd. The installer builds every other partition from the release.
+const RECOVERY_IMAGES: readonly RecoveryImage[] = [
+  { name: 'boot.img', description: 'device.artifactBoot' },
+  { name: 'dtbo.img' },
+  { name: 'vendor_boot.img', description: 'device.artifactVendorBoot' },
+  { name: 'vbmeta.img' },
+  { name: 'vbmeta_system.img' },
+  { name: 'recovery.img', description: 'device.artifactRecovery' },
+]
+
+export interface RecoveryFile {
+  readonly file: BuildFile
+  /** The description's i18n key, or undefined for an image named by its file name alone. */
+  readonly description: string | undefined
+}
+
+/** The recovery images of a build, the only files the site offers for download. */
+export const recoveryFilesOf = (build: DeviceBuild): readonly RecoveryFile[] =>
+  RECOVERY_IMAGES.flatMap((image) => {
+    const file = build.files.find(candidate => candidate.name.toLowerCase() === image.name)
+    return file === undefined ? [] : [{ file, description: image.description }]
+  })
+
+// The installer reads this file of a release to install it.
+const INSTALL_MANIFEST = 'manifest.json'
+
+const INSTALLER_RELEASE_PARAMETER = 'release'
+
+/** The installer address for this build, or undefined for a build the installer cannot install. */
+export const installUrlOf = (build: DeviceBuild): string | undefined => {
+  if (!build.files.some(file => file.name === INSTALL_MANIFEST)) return undefined
+  const url = new URL(INSTALLER_URL)
+  url.searchParams.set(INSTALLER_RELEASE_PARAMETER, build.tag)
+  return url.href
 }
 
 /** Builds can share a publication second, so page identity uses position in the server-ordered list. */
@@ -94,70 +121,6 @@ export const featuredBuildsOf = (builds: readonly DeviceBuild[]): FeaturedBuild[
     const build = builds.find(candidate => candidate.kind === kind)
     return build === undefined ? [] : [{ kind, build }]
   })
-
-type FeaturedTier = 'artifact' | 'support'
-
-interface FilePlacement {
-  readonly tier: FeaturedTier
-  readonly description?: string
-}
-
-/** Named artifacts follow flashing order; unknown files follow them in the release record's order. */
-const FILE_TIERS: ReadonlyMap<string, FilePlacement> = new Map<string, FilePlacement>([
-  ['boot.img', { tier: 'artifact', description: 'device.artifactBoot' }],
-  ['vendor_boot.img', { tier: 'artifact', description: 'device.artifactVendorBoot' }],
-  ['recovery.img', { tier: 'artifact', description: 'device.artifactRecovery' }],
-  ['pkmd.bin', { tier: 'support' }],
-  ['super_empty.img', { tier: 'support' }],
-])
-
-const CHECKSUM_SUFFIX = '.sha256sum'
-const CHECKSUM_PLACEMENT: FilePlacement = { tier: 'support' }
-const UNNAMED_PLACEMENT: FilePlacement = { tier: 'artifact' }
-
-const placementOf = (name: string): FilePlacement =>
-  FILE_TIERS.get(name)
-  ?? (name.endsWith(CHECKSUM_SUFFIX) ? CHECKSUM_PLACEMENT : UNNAMED_PLACEMENT)
-
-const ARTIFACT_ORDER: readonly string[] = [...FILE_TIERS]
-  .filter(([, placement]) => placement.tier === 'artifact')
-  .map(([name]) => name)
-
-const artifactRank = (name: string): number => {
-  const at = ARTIFACT_ORDER.indexOf(name)
-  return at === -1 ? ARTIFACT_ORDER.length : at
-}
-
-export interface FeaturedArtifact {
-  readonly file: BuildFile
-  /** The description's i18n key, or undefined for an unnamed file. */
-  readonly description: string | undefined
-}
-
-export interface FeaturedFiles {
-  readonly rom: BuildFile | undefined
-  readonly artifacts: readonly FeaturedArtifact[]
-  readonly support: readonly BuildFile[]
-}
-
-export const featuredFilesOf = (build: DeviceBuild, codename: string): FeaturedFiles => {
-  const rom = packageOf(build, codename)
-  const prominent: { readonly rank: number, readonly artifact: FeaturedArtifact }[] = []
-  const support: BuildFile[] = []
-  for (const file of build.files) {
-    if (file === rom) continue
-    const name = file.name.toLowerCase()
-    const placement = placementOf(name)
-    if (placement.tier === 'support') support.push(file)
-    else prominent.push({ rank: artifactRank(name), artifact: { file, description: placement.description } })
-  }
-  return {
-    rom,
-    // Equal ranks must preserve the release record's order.
-    artifacts: prominent.sort((left, right) => left.rank - right.rank).map(entry => entry.artifact),
-    support,
-  }
-}
 
 /** XOS is the build system's product name, not translatable copy. */
 export const seriesLabel = (series: string): string => `XOS ${series}`

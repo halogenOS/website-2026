@@ -62,7 +62,6 @@
                   :key="placed.index"
                   :build="placed.build"
                   :index="placed.index"
-                  :codename="device.codename"
                 />
               </ol>
             </div>

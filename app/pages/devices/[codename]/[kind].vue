@@ -14,7 +14,6 @@
           :key="card.kind"
           :build="card.build"
           :kind="card.kind"
-          :codename="device.codename"
           :title-id="`featured-${card.kind}`"
         />
 

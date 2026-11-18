@@ -11,8 +11,7 @@ import type { ReleaseCatalog } from '../shared/types/releases'
 import fixture from './fixtures/releases-page.json'
 
 // The fixture is a trimmed real capture of `halogenOS/builds` releases in the record's own
-// order, every value verbatim; `tag_name` is a label for the reader and is consulted by
-// nothing. Why each of the ten entries is present:
+// order, every value verbatim. Why each of the ten entries is present:
 //
 //  1. `20260728.0745.38-tb`: Pong's newest release, a test build newer than its stable.
 //  2. `20260707.2230.36-rb`: Spacewar's newest release, a stable one.
@@ -40,6 +39,7 @@ const summaryOf = (raw: readonly RawRelease[], codenames: readonly string[] = LI
 
 /** A minimal release the parser accepts, so a test can vary exactly one field. */
 const release = (over: Record<string, unknown> = {}): unknown => ({
+  tag_name: '20260101.0000.1-tb',
   name: '[test build] XOS-16.2 01/01/2026 for Pong',
   published_at: '2026-01-01T00:00:00Z',
   prerelease: true,

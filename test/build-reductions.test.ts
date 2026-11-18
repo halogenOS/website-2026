@@ -3,14 +3,16 @@ import { describe, expect, it } from 'vitest'
 import {
   buildAnchor,
   featuredBuildsOf,
-  featuredFilesOf,
+  installUrlOf,
+  recoveryFilesOf,
   seriesGroupsOf,
 } from '../app/utils/builds'
-import type { BuildFile, BuildKind, DeviceBuild } from '../shared/types/releases'
+import type { BuildKind, DeviceBuild } from '../shared/types/releases'
 
 // Builds can share a publication second, so timestamps cannot uniquely identify page anchors.
 
 const buildAt = (publishedAt: string, kind: BuildKind, series: string | null): DeviceBuild => ({
+  tag: `${publishedAt}-${kind}`,
   publishedAt,
   kind,
   series,
@@ -68,85 +70,44 @@ describe('the featured builds', () => {
   })
 })
 
-// Named artifacts follow the device flashing order.
-
-describe('the files of a featured build', () => {
+describe('the files a build offers', () => {
   const fileNamed = (name: string) => ({ name, size: 1, url: `https://example.invalid/${name}` })
-  const shipped: DeviceBuild = {
-    ...buildAt('2026-07-28T06:50:51Z', 'stable', '16.2'),
+  const released: DeviceBuild = {
+    ...buildAt('2026-11-18T13:58:07Z', 'test', '17.0'),
     files: [
-      fileNamed('boot.img'),
-      fileNamed('halogenOS_Pong-16.2-20260728-064754-OFFICIAL.zip'),
-      fileNamed('pkmd.bin'),
-      fileNamed('recovery.img'),
-      fileNamed('super_empty.img'),
-      fileNamed('vendor_boot.img'),
-    ],
+      'boot.img', 'delta-1549.json', 'dtbo.img', 'free-bytes-system.img', 'manifest.json', 'pkmd.bin',
+      'super_empty.img', 'vbmeta.img', 'vbmeta_system.img', 'vendor_boot.img', 'vendor_dlkm.img',
+    ].map(fileNamed),
   }
 
-  it('sorts them into package, described artifacts and quiet chips', () => {
-    const files = featuredFilesOf(shipped, 'Pong')
-    expect(files.rom?.name).toBe('halogenOS_Pong-16.2-20260728-064754-OFFICIAL.zip')
-    expect(files.artifacts.map(artifact => [artifact.file.name, artifact.description])).toEqual([
+  it('lists only the recovery images, in the order the installer writes them, with descriptions', () => {
+    expect(recoveryFilesOf(released).map(recovery => [recovery.file.name, recovery.description])).toEqual([
       ['boot.img', 'device.artifactBoot'],
+      ['dtbo.img', undefined],
       ['vendor_boot.img', 'device.artifactVendorBoot'],
-      ['recovery.img', 'device.artifactRecovery'],
+      ['vbmeta.img', undefined],
+      ['vbmeta_system.img', undefined],
     ])
-    expect(files.support.map(file => file.name)).toEqual(['pkmd.bin', 'super_empty.img'])
   })
 
-  it('gives a file the mapping does not name a row without a description', () => {
+  it('lists the recovery image of a release that has one, and no zip', () => {
     const legacy: DeviceBuild = {
-      ...shipped,
-      files: [
-        fileNamed('halogenOS_guacamole-12.1-20220815-1947-rolling-OFFICIAL.zip'),
-        fileNamed('boot.img'),
-        fileNamed('op7pro_fw.zip'),
-        fileNamed('halogenOS_guacamole-12.1-20220815-1947-rolling-OFFICIAL.zip.sha256sum'),
-      ],
+      ...released,
+      files: ['halogenOS_Pong-16.2-20260728-064754-OFFICIAL.zip', 'recovery.img', 'BOOT.IMG'].map(fileNamed),
     }
-    const files = featuredFilesOf(legacy, 'guacamole')
-    expect(files.artifacts.map(artifact => [artifact.file.name, artifact.description])).toEqual([
-      ['boot.img', 'device.artifactBoot'],
-      ['op7pro_fw.zip', undefined],
-    ])
-    expect(files.support.map(file => file.name)).toEqual([
-      'halogenOS_guacamole-12.1-20220815-1947-rolling-OFFICIAL.zip.sha256sum',
-    ])
+    expect(recoveryFilesOf(legacy).map(recovery => recovery.file.name)).toEqual(['BOOT.IMG', 'recovery.img'])
   })
 
-  it('reads the tier off the name in lower case, suffix rule included', () => {
-    const shouted: DeviceBuild = {
-      ...shipped,
-      files: [
-        fileNamed('BOOT.IMG'),
-        fileNamed('PKMD.BIN'),
-        fileNamed('boot.img.SHA256SUM'),
-      ],
-    }
-    const files = featuredFilesOf(shouted, 'Pong')
-    expect(files.artifacts.map(artifact => [artifact.file.name, artifact.description])).toEqual([
-      ['BOOT.IMG', 'device.artifactBoot'],
-    ])
-    expect(files.support.map(file => file.name)).toEqual(['PKMD.BIN', 'boot.img.SHA256SUM'])
+  it('links the installer to the tag of a build with an install manifest', () => {
+    const tagged: DeviceBuild = { ...released, tag: '20261118.1447.7-tb' }
+    expect(installUrlOf(tagged)).toBe('https://install.halogenos.org/?release=20261118.1447.7-tb')
   })
 
-  // Set comparison would hide duplicate files.
-  it('hides nothing and doubles nothing: the tiers partition the build\'s files', () => {
-    const byName = (left: BuildFile, right: BuildFile) => left.name.localeCompare(right.name)
-    const builds = [
-      shipped,
-      buildAt('2025-04-22T20:50:58Z', 'test', null),
-      { ...shipped, files: [fileNamed('boot.img'), fileNamed('pkmd.bin')] },
-    ]
-    for (const build of builds) {
-      const files = featuredFilesOf(build, 'Pong')
-      const shown = [
-        ...(files.rom === undefined ? [] : [files.rom]),
-        ...files.artifacts.map(artifact => artifact.file),
-        ...files.support,
-      ]
-      expect([...shown].sort(byName)).toEqual([...build.files].sort(byName))
+  it('offers no install for a build without an install manifest', () => {
+    const unlisted: DeviceBuild = {
+      ...released,
+      files: released.files.filter(file => file.name !== 'manifest.json'),
     }
+    expect(installUrlOf(unlisted)).toBeUndefined()
   })
 })

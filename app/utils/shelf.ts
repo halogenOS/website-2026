@@ -59,10 +59,10 @@ export const NOTE_PLACE: Record<ShelfRole, string> = {
   follower: `${WIDE_FILES} ${FOLLOWER_PLACE} mt-[0.6rem]`,
 }
 
-export const PACKAGE_VARIANT: Record<ShelfRole, 'package' | 'packageSet'> = {
-  alone: 'package',
-  lead: 'packageSet',
-  follower: 'packageSet',
+export const ACTION_VARIANT: Record<ShelfRole, 'card' | 'cardSet'> = {
+  alone: 'card',
+  lead: 'cardSet',
+  follower: 'cardSet',
 }
 
 const SET_LINE = 'flex flex-wrap gap-[0.45rem]'
@@ -88,30 +88,14 @@ export const ARTIFACT_LINE: Record<ShelfRole, string> = {
   follower: SET_LINE,
 }
 
-export const SUPPORT_VARIANT: Record<ShelfRole, 'piece' | 'pieceSet'> = {
-  alone: 'piece',
-  lead: 'pieceSet',
-  follower: 'pieceSet',
-}
-export const SUPPORT_ITEM: Record<ShelfRole, string> = {
-  alone: 'max-w-[22rem] flex-[1_1_auto]',
-  lead: SET_CHIP,
-  follower: SET_CHIP,
-}
-export const SUPPORT_LINE: Record<ShelfRole, string> = {
-  alone: 'flex flex-wrap gap-[0.3rem] @min-card-wide:gap-[0.45rem] [&:not(:first-child)]:mt-[0.35rem]',
-  lead: `${SET_LINE} [&:not(:first-child)]:mt-[0.35rem]`,
-  follower: SET_LINE,
-}
-
 export const NOTES: Record<ShelfRole, string> = {
   alone: `${WIDE_BAND} border-t border-border-subtle ${STACK_STEP} pt-[0.85rem]`,
   lead: `${WIDE_BAND} border-t border-border-subtle ${STACK_STEP} pt-[0.85rem]`,
   follower: `${WIDE_BAND} ${FOLLOWER_BAND} col-start-2 self-end border-t-0 mt-0 pt-0`,
 }
 
-// On a tall stage, the lead's card spacing scales with viewport height and must not enlarge the package.
-export const PACKAGE_ROOM: Record<ShelfRole, string> = {
+// On a tall stage, the lead's card spacing scales with viewport height and must not enlarge the action.
+export const ACTION_ROOM: Record<ShelfRole, string> = {
   alone: '@min-card-wide:[--file-room:var(--card-room)]',
   lead: 'stage-wide:@min-card-wide:[--file-room:var(--card-room)]',
   follower: '[--file-room:0.7rem] w-full',

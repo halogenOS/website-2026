@@ -185,7 +185,7 @@ describe('a device launcher on the wire', () => {
     expect(html).not.toContain('Full build history')
     expect(html).not.toContain(
       'https://github.com/halogenOS/builds/releases/download/20240610.1805.88-tb/')
-    expect(html).toContain('Flashable OS zip')
+    expect(html).not.toContain('Flashable OS zip')
     expect(html).toContain('Boot image')
     expect(html).toContain('Vendor boot image')
     expect(html).toContain('Recovery image')
@@ -194,8 +194,7 @@ describe('a device launcher on the wire', () => {
     expect(cardTagsOf(html).map(tag => countOf(tag, A_FOLLOWER))).toEqual([0, 1, 1])
     expect(cardsOf(html).map(card => countOf(card, DESCRIBED_ROW))).toEqual([3, 0, 0])
     expect(html).toContain(
-      'https://github.com/halogenOS/builds/releases/download/20260703.2234.33-rb/'
-      + 'halogenOS_Pong-16.2-20260703-213704-OFFICIAL.zip')
+      'https://github.com/halogenOS/builds/releases/download/20260703.2234.33-rb/recovery.img')
     expect(html).toContain('https://github.com/halogenOS/builds/releases/tag/20260703.2234.33-rb')
   })
 
@@ -213,10 +212,7 @@ describe('a device launcher on the wire', () => {
 
     const guacamole = await bodyOf('/devices/guacamole')
     expect(guacamole).toContain('OnePlus 7 Pro')
-    // The two firmware zips are files the description table does not name.
     expect(cardTagsOf(guacamole).map(tag => countOf(tag, A_FOLLOWER))).toEqual([0, 1])
-    expect(guacamole).toContain('op7pro_fw.zip')
-    expect(guacamole).toContain('op7pro_fw_old_do_not_use.zip')
     expect(cardsOf(guacamole).map(card => countOf(card, DESCRIBED_ROW))).toEqual([1, 0])
   })
 
@@ -270,8 +266,7 @@ describe('the section pages under one device', () => {
     expect(stable).not.toContain('Newest test build')
     expect(stable).not.toContain('Full build history')
     expect(stable).toContain(
-      'https://github.com/halogenOS/builds/releases/download/20260703.2234.33-rb/'
-      + 'halogenOS_Pong-16.2-20260703-213704-OFFICIAL.zip')
+      'https://github.com/halogenOS/builds/releases/download/20260703.2234.33-rb/recovery.img')
 
     const test = await bodyOf('/devices/pong/test')
     expect(test).toContain('Newest test build')
@@ -303,14 +298,12 @@ describe('the section pages under one device', () => {
     expect(html).toContain('Nothing Phone (2)')
     expect(html).toContain('Full build history')
     expect(html).toContain(
-      'https://github.com/halogenOS/builds/releases/download/20260602.0800.30-rcb/'
-      + 'halogenOS_Pong-16.2-20260602-065959-OFFICIAL.zip')
+      'https://github.com/halogenOS/builds/releases/download/20260602.0800.30-rcb/boot.img')
     expect(html).toContain('Stable release')
     expect(html).not.toContain('Newest stable build')
     expect(html).not.toContain('Latest builds')
 
     const spacewar = await bodyOf('/devices/spacewar/builds')
-    expect(spacewar).toContain('halogenOS_Spacewar-15.0-20241024-053834-OFFICIAL.zip.sha256sum')
     expect(spacewar).toContain('This release carries no files, so it offers nothing to download.')
   })
 })
