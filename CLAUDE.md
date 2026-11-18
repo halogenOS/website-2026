@@ -107,4 +107,4 @@ legal pages (the privacy policy and the legal notice) and a footer that links to
 both. Each listed device has a page of its own, a launcher linking to sub-pages: one
 per build kind, each carrying that kind's newest build, plus one carrying the full
 build history. The devices page reads live release data through one cached server
-route with a committed baseline as fallback.
+route and lists only the devices with builds in it.

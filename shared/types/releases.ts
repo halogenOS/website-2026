@@ -43,8 +43,8 @@ export interface DeviceBuild {
 
 /**
  * Every listed device's builds, newest first. `devices` is keyed by the codename as the
- * shared device list spells it, and its keys are a subset of that list: a device with no
- * builds is omitted, so a consumer falls back to its baseline as it does with no catalog.
+ * shared device list spells it, and its keys are a subset of that list: a device without
+ * builds is omitted.
  */
 export interface ReleaseCatalog {
   /** ISO instant of the successful refresh. */

@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
 
   try {
     const catalog = await getReleaseCatalog()
-    // A listed device without builds is not missing; consumers use its baseline when this list is empty.
+    // A known device without builds is not missing; its list is empty.
     return { builds: catalog.devices[device.codename] ?? [] }
   }
   catch (error) {

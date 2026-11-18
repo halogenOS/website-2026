@@ -2,7 +2,7 @@ import type { ReleaseSummary } from '#shared/types/releases'
 
 /**
  * Await this unconditionally in page setup and pass data down as props; children must not fetch independently.
- * Null tells the caller to use its committed baseline.
+ * Null means the release data cannot be served.
  */
 export const useReleaseSummary = async (): Promise<ReleaseSummary | null> => {
   const { data } = await useFetch<ReleaseSummary>('/api/releases', {

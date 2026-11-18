@@ -91,8 +91,9 @@ any other casing redirects to it permanently.
 
 Every failure on the way throws instead of caching anything degraded. An empty cache with
 the upstream failing answers 503 `{ "unavailable": true }` on both routes; the devices page
-then falls back per device to the baseline numbers committed beside the device list, and a
-device page shows its identity with a link to the full releases listing on GitHub.
+then lists no device, and a device page shows its identity with a link to the full releases
+listing on GitHub. The devices page lists only the devices that have builds in the release
+record.
 
 Two optional environment variables shape the route:
 

@@ -83,7 +83,7 @@ const newestFirst = (a: RawRelease, b: RawRelease): number => {
 }
 
 /**
- * Count all build kinds, including releases without files; omitted devices use their baseline.
+ * Count all build kinds, including releases without files; a device without builds is omitted.
  * Throw when no listed device resolves so a broken record cannot replace the last good cache entry.
  */
 export const buildReleaseCatalog = (

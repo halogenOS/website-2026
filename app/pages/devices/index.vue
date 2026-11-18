@@ -9,15 +9,15 @@
          title. -->
     <ul class="grid gap-[clamp(0.5rem,1.1svh,0.75rem)] desk:grid-cols-3">
       <li
-        v-for="device in DEVICES"
+        v-for="{ device, activity } in listedDevicesOf(summary)"
         :key="device.codename"
       >
         <SiteDeviceCell
           :to="devicePath(device)"
           :name="device.name"
           :codename="device.codename"
-          :last-build="summary?.devices[device.codename]?.lastBuild ?? device.lastBuild"
-          :build-count="summary?.devices[device.codename]?.buildCount ?? device.buildCount"
+          :last-build="activity.lastBuild"
+          :build-count="activity.buildCount"
         />
       </li>
     </ul>
@@ -39,10 +39,9 @@
 
 <script setup lang="ts">
 import { ArrowRight } from 'lucide-vue-next'
-import { DEVICES, devicePath, EVERY_BUILD_URL } from '#shared/data/devices'
+import { devicePath, EVERY_BUILD_URL } from '#shared/data/devices'
 
 const { t } = useI18n()
 
-// Missing live data falls back to the device baseline without a visible error message.
 const summary = await useReleaseSummary()
 </script>

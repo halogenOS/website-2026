@@ -1,7 +1,7 @@
 import type { DeviceBuild } from '#shared/types/releases'
 
 /**
- * Null means unavailable; an empty list is incomplete because listed devices have baseline builds.
+ * Null means unavailable or a device without builds.
  * The caller must show device identity and the external listing, not an empty history.
  */
 export const useDeviceBuilds = async (codename: string): Promise<readonly DeviceBuild[] | null> => {
